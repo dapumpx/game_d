@@ -396,7 +396,6 @@ module PomeloForEgret{
             }
         }
         private send(byte:egret.ByteArray):void{
-            console.log("message send @@@@@@@@@@@@@@@");
             if (this.socket && this.socket.connected)
             {
                 this.socket.writeBytes(byte);
