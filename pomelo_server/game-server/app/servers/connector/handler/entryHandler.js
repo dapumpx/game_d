@@ -1,9 +1,9 @@
-module.exports = function(app) {
-  return new Handler(app);
+module.exports = function (app) {
+	return new Handler(app);
 };
 
-var Handler = function(app) {
-  this.app = app;
+var Handler = function (app) {
+	this.app = app;
 };
 
 /**
@@ -14,8 +14,11 @@ var Handler = function(app) {
  * @param  {Function} next    next step callback
  * @return {Void}
  */
-Handler.prototype.entry = function(msg, session, next) {
-  next(null, {code: 200, msg: 'game server is ok.'});
+Handler.prototype.entry = function (msg, session, next) {
+	next(null, {
+		code: 200,
+		msg: 'game server is ok.'
+	});
 };
 
 /**
@@ -26,12 +29,15 @@ Handler.prototype.entry = function(msg, session, next) {
  * @param  {Function} next    next step callback
  * @return {Void}
  */
-Handler.prototype.publish = function(msg, session, next) {
+Handler.prototype.publish = function (msg, session, next) {
 	var result = {
 		topic: 'publish',
-		payload: JSON.stringify({code: 200, msg: 'publish message is ok.'})
+		payload: JSON.stringify({
+			code: 200,
+			msg: 'publish message is ok.'
+		})
 	};
-  next(null, result);
+	next(null, result);
 };
 
 /**
@@ -42,10 +48,13 @@ Handler.prototype.publish = function(msg, session, next) {
  * @param  {Function} next    next step callback
  * @return {Void}
  */
-Handler.prototype.subscribe = function(msg, session, next) {
+Handler.prototype.subscribe = function (msg, session, next) {
 	var result = {
 		topic: 'subscribe',
-		payload: JSON.stringify({code: 200, msg: 'subscribe message is ok.'})
+		payload: JSON.stringify({
+			code: 200,
+			msg: 'subscribe message is ok.'
+		})
 	};
-  next(null, result);
+	next(null, result);
 };
