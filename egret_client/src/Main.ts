@@ -95,7 +95,17 @@ class Main extends egret.DisplayObjectContainer {
     private createGameScene() {
         LayerManager.INS.init(this);
 
-        
+        // let abc:String = RES.getRes("tbl_item_base_csv");
+        // console.log( typeof(abc));
+        // let arrAbc = abc.split("\n");
+        // console.log(arrAbc);
+        // console.log(arrAbc[1]);
+        // let vo:TblItemBase = new TblItemBase(arrAbc[1]);
+        // console.log("id", vo.id, "name", vo.name, "quality", vo.quality);
+
+        TblManager.INS.addTable(TblItemBase, TblItemBase.TBL_NAME);
+        console.log(TblItemBase.getVo(10002).name);
+
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);
         // let stageW = this.stage.stageWidth;

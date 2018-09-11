@@ -11,10 +11,16 @@
 		"libs/modules/promise/promise.js"
 	],
 	"game": [
-		"bin-debug/LoadingUI.js",
-		"bin-debug/Main.js",
+		"bin-debug/tblVo/TblBase.js",
+		"bin-debug/mananger/ModuleManager.js",
 		"bin-debug/Platform.js",
+		"bin-debug/mananger/FunctionManager.js",
+		"bin-debug/mananger/LayerManager.js",
+		"bin-debug/Main.js",
+		"bin-debug/mananger/TblManager.js",
 		"bin-debug/service/Pomelo.js",
-		"bin-debug/service/WebSocketService.js"
+		"bin-debug/service/WebSocketService.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/tblVo/TblItemBase.js"
 	]
 }
