@@ -3,16 +3,17 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 };
 var FunctionManager = (function () {
     function FunctionManager() {
+        this.init();
+        // console.log(FunctionType);
     }
-    ;
-    Object.defineProperty(FunctionManager, "INS", {
-        get: function () {
-            return FunctionManager._instace;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    FunctionManager._instace = new FunctionManager();
+    FunctionManager.prototype.init = function () {
+        this.dictMoldule = {};
+        this.dictMoldule[FunctionType.MAIN_LINE] = new FuncDataVo(FunctionType.MAIN_LINE, "", LayerType.SCENE);
+        this.dictMoldule[FunctionType.TEST_WIN] = new FuncDataVo(FunctionType.TEST_WIN, "", LayerType.POPUP);
+    };
+    FunctionManager.prototype.getFuncDataVo = function (id) {
+        return this.dictMoldule[id];
+    };
     return FunctionManager;
 }());
 __reflect(FunctionManager.prototype, "FunctionManager");

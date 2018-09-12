@@ -28,9 +28,6 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 class Main extends egret.DisplayObjectContainer {
-
-
-
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
@@ -58,7 +55,9 @@ class Main extends egret.DisplayObjectContainer {
             console.log(e);
         })
 
-
+        let assetAdapter = new AssetAdapter();
+        egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
     }
 
@@ -78,12 +77,25 @@ class Main extends egret.DisplayObjectContainer {
             const loadingView = new LoadingUI();
             this.stage.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
+            await this.loadTheme();
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);
         }
+    }
+
+    private loadTheme() {
+        return new Promise((resolve, reject) => {
+            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            let theme = new eui.Theme("resource/default.thm.json", this.stage);
+            theme.addEventListener(eui.UIEvent.COMPLETE, () => {
+                resolve();
+            }, this);
+
+        })
     }
 
     private textfield: egret.TextField;
@@ -93,19 +105,17 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
-        LayerManager.INS.init(this);
+        console.log(FunctionType.MAIN_LINE);
+        ManagerLibrary.layerMgr.init(this);
 
-        // let abc:String = RES.getRes("tbl_item_base_csv");
-        // console.log( typeof(abc));
-        // let arrAbc = abc.split("\n");
-        // console.log(arrAbc);
-        // console.log(arrAbc[1]);
-        // let vo:TblItemBase = new TblItemBase(arrAbc[1]);
-        // console.log("id", vo.id, "name", vo.name, "quality", vo.quality);
+        ManagerLibrary.tblMgr.addTable(TblItemBase, TblItemBase.TBL_NAME);
+        ManagerLibrary.tblMgr.addTable(TblFunction, TblFunction.TBL_NAME);
 
-        TblManager.INS.addTable(TblItemBase, TblItemBase.TBL_NAME);
-        console.log(TblItemBase.getVo(10002).name);
+        console.log(TblFunction.getVo(FunctionType.MAIN_LINE).name);
 
+        ManagerLibrary.moduleMgr.showModule(FunctionType.TEST_WIN);
+
+        // ManagerLibrary.functionMgr.init();
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);
         // let stageW = this.stage.stageWidth;

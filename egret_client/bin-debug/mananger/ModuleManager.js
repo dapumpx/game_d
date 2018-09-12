@@ -3,16 +3,25 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 };
 var ModuleManager = (function () {
     function ModuleManager() {
+        this.arrModule = [];
     }
-    ;
-    Object.defineProperty(ModuleManager, "INS", {
-        get: function () {
-            return ModuleManager._instace;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ModuleManager._instace = new ModuleManager();
+    ModuleManager.prototype.showModule = function (mid) {
+        if (this.isShow(mid)) {
+            this.closeModule(mid);
+        }
+        else {
+            var view = ModuleHelper.getModule(mid);
+            ManagerLibrary.layerMgr.addView(view);
+            this.arrModule.push(view.mid);
+        }
+    };
+    ModuleManager.prototype.closeModule = function (mid) {
+        if (this.isShow(mid)) {
+        }
+    };
+    ModuleManager.prototype.isShow = function (mid) {
+        return this.arrModule.indexOf(mid) >= 0;
+    };
     return ModuleManager;
 }());
 __reflect(ModuleManager.prototype, "ModuleManager");

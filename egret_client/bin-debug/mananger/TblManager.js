@@ -5,14 +5,11 @@ var TblManager = (function () {
     function TblManager() {
         this.objDictTbl = new Object();
     }
-    ;
-    Object.defineProperty(TblManager, "INS", {
-        get: function () {
-            return TblManager._instace;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    // private static _instace:TblManager = new TblManager();;
+    // static get INS():TblManager
+    // {
+    // 	return TblManager._instace;
+    // }
     TblManager.prototype.addTable = function (c, strTblName) {
         var _this = this;
         if (!this.objDictTbl[strTblName]) {
@@ -32,7 +29,6 @@ var TblManager = (function () {
         }
         return null;
     };
-    TblManager._instace = new TblManager();
     return TblManager;
 }());
 __reflect(TblManager.prototype, "TblManager");

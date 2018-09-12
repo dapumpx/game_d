@@ -4,11 +4,11 @@ class TblManager {
 	}
 
 	private objDictTbl:Object;
-	private static _instace:TblManager = new TblManager();;
-	static get INS():TblManager
-	{
-		return TblManager._instace;
-	}
+	// private static _instace:TblManager = new TblManager();;
+	// static get INS():TblManager
+	// {
+	// 	return TblManager._instace;
+	// }
 
 	public addTable<T extends TblBase>(c: {new(data:string): T; }, strTblName):void
 	{

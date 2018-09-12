@@ -19,7 +19,7 @@ var TblItemBase = (function (_super) {
         return _this;
     }
     TblItemBase.getVo = function (id) {
-        return TblManager.INS.getVo(TblItemBase.TBL_NAME, id);
+        return ManagerLibrary.tblMgr.getVo(TblItemBase.TBL_NAME, id);
     };
     TblItemBase.TBL_NAME = "tbl_item_base_csv";
     return TblItemBase;

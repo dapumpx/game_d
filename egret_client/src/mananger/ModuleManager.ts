@@ -2,9 +2,29 @@ class ModuleManager {
 	public constructor() {
 	}
 
-	private static _instace:ModuleManager = new ModuleManager();;
-	static get INS():ModuleManager
+	public arrModule:number[] = [];
+	public showModule(mid:number){
+		if(this.isShow(mid))
+		{
+			this.closeModule(mid);
+		}
+		else
+		{
+			let view:BaseModuleView = ModuleHelper.getModule(mid);
+			ManagerLibrary.layerMgr.addView(view);
+			this.arrModule.push(view.mid);
+		}
+	}
+
+	public closeModule(mid:number):void
 	{
-		return ModuleManager._instace;
+		if(this.isShow(mid))
+		{
+
+		}
+	}
+
+	public isShow(mid:number):boolean{
+		return this.arrModule.indexOf(mid) >= 0;
 	}
 }

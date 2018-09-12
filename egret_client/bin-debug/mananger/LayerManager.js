@@ -4,25 +4,32 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var LayerManager = (function () {
     function LayerManager() {
     }
-    ;
-    Object.defineProperty(LayerManager, "INS", {
-        get: function () {
-            return LayerManager._instace;
-        },
-        enumerable: true,
-        configurable: true
-    });
     LayerManager.prototype.init = function (stage) {
-        this.layerScene = new egret.DisplayObjectContainer();
+        this.layerScene = new LayerBase();
         stage.addChild(this.layerScene);
-        this.layerStatic = new egret.DisplayObjectContainer();
+        this.layerStatic = new LayerBase();
         stage.addChild(this.layerStatic);
-        this.layerPopup = new egret.DisplayObjectContainer();
+        this.layerPopup = new LayerBase();
         stage.addChild(this.layerPopup);
-        this.layerTop = new egret.DisplayObjectContainer();
+        this.layerTop = new LayerBase();
         stage.addChild(this.layerTop);
     };
-    LayerManager._instace = new LayerManager();
+    LayerManager.prototype.addView = function (view) {
+        switch (ManagerLibrary.functionMgr.getFuncDataVo(view.mid).layerType) {
+            case LayerType.POPUP:
+                this.layerPopup.addChild(view);
+                break;
+            case LayerType.SCENE:
+                this.layerScene.addChild(view);
+                break;
+            case LayerType.STATIC:
+                this.layerStatic.addChild(view);
+                break;
+            case LayerType.TOP:
+                this.layerTop.addChild(view);
+                break;
+        }
+    };
     return LayerManager;
 }());
 __reflect(LayerManager.prototype, "LayerManager");

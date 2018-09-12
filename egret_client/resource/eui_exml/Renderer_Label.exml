@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ui.Renderer_Label" width="100" height="30" xmlns:e="http://ns.egret.com/eui">
+	<e:Label text="Label" x="0" y="0" anchorOffsetX="0" width="100" textColor="0x000000"/>
+</e:Skin>

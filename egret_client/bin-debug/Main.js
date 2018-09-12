@@ -94,6 +94,9 @@ var Main = (function (_super) {
         this.runGame().catch(function (e) {
             console.log(e);
         });
+        var assetAdapter = new AssetAdapter();
+        egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -126,24 +129,38 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
+                        _a.trys.push([0, 4, , 5]);
                         loadingView = new LoadingUI();
                         this.stage.addChild(loadingView);
                         return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
+                        return [4 /*yield*/, this.loadTheme()];
                     case 2:
                         _a.sent();
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 4];
+                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
                     case 3:
+                        _a.sent();
+                        this.stage.removeChild(loadingView);
+                        return [3 /*break*/, 5];
+                    case 4:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
+        });
+    };
+    Main.prototype.loadTheme = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            var theme = new eui.Theme("resource/default.thm.json", _this.stage);
+            theme.addEventListener(eui.UIEvent.COMPLETE, function () {
+                resolve();
+            }, _this);
         });
     };
     /**
@@ -151,16 +168,13 @@ var Main = (function (_super) {
      * Create a game scene
      */
     Main.prototype.createGameScene = function () {
-        LayerManager.INS.init(this);
-        // let abc:String = RES.getRes("tbl_item_base_csv");
-        // console.log( typeof(abc));
-        // let arrAbc = abc.split("\n");
-        // console.log(arrAbc);
-        // console.log(arrAbc[1]);
-        // let vo:TblItemBase = new TblItemBase(arrAbc[1]);
-        // console.log("id", vo.id, "name", vo.name, "quality", vo.quality);
-        TblManager.INS.addTable(TblItemBase, TblItemBase.TBL_NAME);
-        console.log(TblItemBase.getVo(10002).name);
+        console.log(FunctionType.MAIN_LINE);
+        ManagerLibrary.layerMgr.init(this);
+        ManagerLibrary.tblMgr.addTable(TblItemBase, TblItemBase.TBL_NAME);
+        ManagerLibrary.tblMgr.addTable(TblFunction, TblFunction.TBL_NAME);
+        console.log(TblFunction.getVo(FunctionType.MAIN_LINE).name);
+        ManagerLibrary.moduleMgr.showModule(FunctionType.TEST_WIN);
+        // ManagerLibrary.functionMgr.init();
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);
         // let stageW = this.stage.stageWidth;
