@@ -17,6 +17,8 @@ var ModuleManager = (function () {
     };
     ModuleManager.prototype.closeModule = function (mid) {
         if (this.isShow(mid)) {
+            this.arrModule.splice(this.arrModule.indexOf(mid), 1);
+            ManagerLibrary.layerMgr.removeView(mid);
         }
     };
     ModuleManager.prototype.isShow = function (mid) {

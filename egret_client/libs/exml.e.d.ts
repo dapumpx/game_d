@@ -1,9 +1,7 @@
-declare module ui{
-	class Renderer_Label extends eui.Skin{
-	}
+declare class MainRoleInfoUI extends eui.Skin{
 }
-declare module ui{
-	class TestUI extends eui.Skin{
+declare module skins{
+	class PanelSkin extends eui.Skin{
 	}
 }
 declare module skins{
@@ -24,10 +22,6 @@ declare module skins{
 }
 declare module skins{
 	class ItemRendererSkin extends eui.Skin{
-	}
-}
-declare module skins{
-	class PanelSkin extends eui.Skin{
 	}
 }
 declare module skins{

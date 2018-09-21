@@ -16,7 +16,7 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
-		"resource/eui_exml/Renderer_Label.exml",
+		"resource/eui_exml/comp/MainRoleInfoUI.exml",
 		"resource/eui_exml/TestUI.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",

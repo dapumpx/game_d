@@ -29,6 +29,40 @@ class LayerManager {
 		stage.addChild(this.layerTop);
 	}
 
+	public removeView(mid:number):void
+	{
+		switch(ManagerLibrary.functionMgr.getFuncDataVo(mid).layerType)
+		{
+			case LayerType.POPUP:
+				this.removeFromLayer(mid, this.layerPopup);
+				break;
+
+			case LayerType.SCENE:
+				this.removeFromLayer(mid, this.layerScene);
+				break;
+
+			case LayerType.STATIC:
+				this.removeFromLayer(mid, this.layerStatic);
+				break;
+
+			case LayerType.TOP:
+				this.removeFromLayer(mid, this.layerTop);
+				break;
+		}
+	}
+
+	private removeFromLayer(mid:number, layer:egret.DisplayObjectContainer):void
+	{
+		for(let i:number = 0; i < layer.numChildren; i++)
+		{
+			let view:BaseModuleView = layer.getChildAt(i) as BaseModuleView;
+			if(view && view.mid == mid)
+			{
+				layer.removeChild(view);
+			}
+		}
+	}
+
 	public addView(view:BaseModuleView):void
 	{
 		switch(ManagerLibrary.functionMgr.getFuncDataVo(view.mid).layerType)

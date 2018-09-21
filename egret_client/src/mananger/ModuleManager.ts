@@ -19,8 +19,9 @@ class ModuleManager {
 	public closeModule(mid:number):void
 	{
 		if(this.isShow(mid))
-		{
-
+		{ 	
+			this.arrModule.splice(this.arrModule.indexOf(mid), 1);
+			ManagerLibrary.layerMgr.removeView(mid);
 		}
 	}
 

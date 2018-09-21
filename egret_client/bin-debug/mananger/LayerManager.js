@@ -14,6 +14,30 @@ var LayerManager = (function () {
         this.layerTop = new LayerBase();
         stage.addChild(this.layerTop);
     };
+    LayerManager.prototype.removeView = function (mid) {
+        switch (ManagerLibrary.functionMgr.getFuncDataVo(mid).layerType) {
+            case LayerType.POPUP:
+                this.removeFromLayer(mid, this.layerPopup);
+                break;
+            case LayerType.SCENE:
+                this.removeFromLayer(mid, this.layerScene);
+                break;
+            case LayerType.STATIC:
+                this.removeFromLayer(mid, this.layerStatic);
+                break;
+            case LayerType.TOP:
+                this.removeFromLayer(mid, this.layerTop);
+                break;
+        }
+    };
+    LayerManager.prototype.removeFromLayer = function (mid, layer) {
+        for (var i = 0; i < layer.numChildren; i++) {
+            var view = layer.getChildAt(i);
+            if (view && view.mid == mid) {
+                layer.removeChild(view);
+            }
+        }
+    };
     LayerManager.prototype.addView = function (view) {
         switch (ManagerLibrary.functionMgr.getFuncDataVo(view.mid).layerType) {
             case LayerType.POPUP:

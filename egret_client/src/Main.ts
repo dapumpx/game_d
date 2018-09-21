@@ -108,6 +108,8 @@ class Main extends egret.DisplayObjectContainer {
         console.log(FunctionType.MAIN_LINE);
         ManagerLibrary.layerMgr.init(this);
 
+        console.log("stage x:", this.width, this.height);
+
         ManagerLibrary.tblMgr.addTable(TblItemBase, TblItemBase.TBL_NAME);
         ManagerLibrary.tblMgr.addTable(TblFunction, TblFunction.TBL_NAME);
 

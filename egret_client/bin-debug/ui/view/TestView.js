@@ -16,7 +16,20 @@ var TestView = (function (_super) {
         return _this;
     }
     TestView.prototype.onSkinLoadComplete = function () {
-        console.log(this.btnOk);
+        _super.prototype.onSkinLoadComplete.call(this);
+        this.closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTap, this);
+        var sp = new egret.Sprite();
+        sp.graphics.beginFill(0x00ff00, 1);
+        sp.graphics.drawRect(0, 0, this.width, this.height);
+        sp.graphics.endFill();
+        this.addChildAt(sp, 0);
+        var mainRoleInfo = new MainRoleInfo();
+        this.addChild(mainRoleInfo);
+        // console.log("x", this.x, "y", this.y);
+    };
+    TestView.prototype.onTap = function (e) {
+        console.log("CLICK CLICK");
+        _super.prototype.doClose.call(this);
     };
     return TestView;
 }(BaseModuleView));
