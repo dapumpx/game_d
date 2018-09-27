@@ -13,14 +13,15 @@ if(mysqlConfig[env]) {
 var createMysqlPool = function(){
   return _poolModule.createPool({
     name     : 'mysql',
-    create   : function(callback) {
+    create   : function() {
       var client = mysql.createConnection({
         host: mysqlConfig.host,
         user: mysqlConfig.user,
         password: mysqlConfig.password,
         database: mysqlConfig.database
       });
-      callback(null, client);
+      // callback(null, client);
+      return client;
     },
     destroy  : function(client) { client.end(); },
     max      : 10,

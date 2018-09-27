@@ -12,7 +12,7 @@ var fightskillDao = module.exports;
  * @param {function} cb 
  */
 fightskillDao.add = function(skill, cb) {
-	var sql = 'insert into FightSkill (playerId, skillId, level, type ) values (?, ?, ?, ?)';
+	var sql = 'insert into `FightSkill` (playerId, skillId, `level`, `type` ) values (?, ?, ?, ?)';
 	var args = [skill.playerId, skill.skillId, skill.level, skill.type];
 
 	pomelo.app.get('dbclient').insert(sql, args, function(err, res) {
@@ -32,7 +32,7 @@ fightskillDao.add = function(skill, cb) {
  * @param val {Object} Update params, contains level and skill id
  */
 fightskillDao.update = function(val, cb) {
-	var sql = 'update FightSkill set level = ? where id = ?';
+	var sql = 'update `FightSkill` set `level` = ? where id = ?';
 	var args = [val.level, val.id];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
@@ -52,7 +52,7 @@ fightskillDao.update = function(val, cb) {
  * @param {function} cb 
  */
 fightskillDao.getFightSkillsByPlayerId = function(playerId, cb) {
-	var sql = 'select * from FightSkill where playerId = ?';
+	var sql = 'select * from `FightSkill` where playerId = ?';
 	var args = [playerId];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {

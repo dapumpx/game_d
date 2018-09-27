@@ -268,7 +268,7 @@ userDao.createUser = function (username, password, from, cb){
  * @param {function} cb Callback function
  */
 userDao.createPlayer = function (uid, name, roleId,cb){
-	var sql = 'insert into Player (userId, kindId, kindName, name, country, rank, level, experience, attackValue, defenceValue, hitRate, dodgeRate, walkSpeed, attackSpeed, hp, mp, maxHp, maxMp, areaId, x, y, skillPoint) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+	var sql = 'insert into `Player` (userId, kindId, kindName, `name`, country, `rank`, `level`, experience, attackValue, defenceValue, hitRate, dodgeRate, walkSpeed, attackSpeed, hp, mp, maxHp, maxMp, areaId, x, y, skillPoint) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 	//var role = dataApi.role.findById(roleId);
 	var character = dataApi.character.findById(roleId);
   var role = {name: character.englishName, career: 'warrior', country: 1, gender: 'male'}
@@ -316,7 +316,7 @@ userDao.createPlayer = function (uid, name, roleId,cb){
  * @param {function} cb Callback function.
  */
 userDao.updatePlayer = function (player, cb){
-	var sql = 'update Player set x = ? ,y = ? , hp = ?, mp = ? , maxHp = ?, maxMp = ?, country = ?, rank = ?, level = ?, experience = ?, areaId = ?, attackValue = ?, defenceValue = ?, walkSpeed = ?, attackSpeed = ? , skillPoint = ? where id = ?';
+	var sql = 'update `Player` set x = ? ,y = ? , hp = ?, mp = ? , maxHp = ?, maxMp = ?, country = ?, rank = ?, level = ?, experience = ?, areaId = ?, attackValue = ?, defenceValue = ?, walkSpeed = ?, attackSpeed = ? , skillPoint = ? where id = ?';
 	var args = [player.x, player.y, player.hp, player.mp, player.maxHp, player.maxMp, player.country, player.rank, player.level, player.experience, player.areaId, player.attackValue, player.defenceValue, player.walkSpeed, player.attackSpeed, player.skillPoint, player.id];
 
 	pomelo.app.get('dbclient').query(sql,args,function(err, res){
@@ -339,7 +339,7 @@ userDao.updatePlayer = function (player, cb){
  * @param {function} cb Callback function.
  */
 userDao.deletePlayer = function (playerId, cb){
-	var sql = 'delete from	Player where id = ?';
+	var sql = 'delete from	`Player` where id = ?';
 	var args = [playerId];
 	pomelo.app.get('dbclient').query(sql,args,function(err, res){
 		if(err !== null){

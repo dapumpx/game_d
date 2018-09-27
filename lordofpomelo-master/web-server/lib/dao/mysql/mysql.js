@@ -22,16 +22,28 @@ NND.init = function(){
  * 
  */
 NND.query = function(sql, args, callback){
-	_pool.acquire(function(err, client) {
-		if (!!err) {
-			console.error('[sqlqueryErr] '+err.stack);
-			return;
-		}
-		client.query(sql, args, function(err, res) {
-			_pool.release(client);
-			callback.apply(null, [err, res]);
+	// _pool.acquire(function(err, client) {
+	// 	if (!!err) {
+	// 		console.error('[sqlqueryErr] '+err.stack);
+	// 		return;
+	// 	}
+	// 	client.query(sql, args, function(err, res) {
+	// 		_pool.release(client);
+	// 		callback.apply(null, [err, res]);
+	// 	});
+	// });
+	const resourcePromise = _pool.acquire();
+	resourcePromise
+		.then(function(client) {
+			client.query(sql, args, function(err, res) {
+						_pool.release(client);
+						callback.apply(null, [err, res]);
+					});
+		})
+		.catch(function(err) {
+			// handle error - this is generally a timeout or maxWaitingClients
+			// error
 		});
-	});
 };
 
 /**

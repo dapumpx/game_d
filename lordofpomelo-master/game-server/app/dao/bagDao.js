@@ -12,7 +12,7 @@ var bagDao = module.exports;
  * @param {function} cb Call back function
  */
 bagDao.createBag = function(playerId, cb) {
-	var sql = 'insert into Bag (playerId, items, itemCount) values (?, ?, ?)';
+	var sql = 'insert into `Bag` (playerId, items, itemCount) values (?, ?, ?)';
 	var args = [playerId, '{}', 20];
 	
 	pomelo.app.get('dbclient').insert(sql, args, function(err, res) {
@@ -34,7 +34,7 @@ bagDao.createBag = function(playerId, cb) {
  * @param {function} cb Call back function.
  */
 bagDao.getBagByPlayerId = function(playerId, cb) {
-	var sql = 'select * from Bag where playerId = ?';
+	var sql = 'select * from `Bag` where playerId = ?';
 	var args = [playerId];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
@@ -60,7 +60,7 @@ bagDao.getBagByPlayerId = function(playerId, cb) {
  * @param {function} cb Call back function.
  */
 bagDao.update = function(bag, cb) {
-	var sql = 'update Bag set items = ? where id = ?';
+	var sql = 'update `Bag` set items = ? where id = ?';
 	var items = bag.items;
 	if (typeof items !== 'string') {
 		items = JSON.stringify(items);
@@ -84,7 +84,7 @@ bagDao.update = function(bag, cb) {
  * @param {function} cb
  */
 bagDao.destroy = function(playerId, cb) {
-	var sql = 'delete from Bag where playerId = ?';
+	var sql = 'delete from `Bag` where playerId = ?';
 	var args = [playerId];
 
 	pomelo.app.dbclinet.query(sql, args, function(err, res) {

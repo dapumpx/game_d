@@ -15,7 +15,7 @@ var utils = require('../util/utils');
  * @param {Function} cb
  */
 taskDao.getTaskByPlayId = function(playerId, cb) {
-	var sql = 'select * from Task where playerId = ?';
+	var sql = 'select * from `Task` where playerId = ?';
 	var args = [playerId];
 	pomelo.app.get('dbclient').query(sql, args, function(err,res) {
 		if (err) {
@@ -39,7 +39,7 @@ taskDao.getTaskByPlayId = function(playerId, cb) {
  * @param {Function} cb
  */
 taskDao.getCurTasksByPlayId = function(playerId, cb) {
-	var sql = 'select * from Task where playerId = ?';
+	var sql = 'select * from `Task` where playerId = ?';
 	var args = [playerId];
 	pomelo.app.get('dbclient').query(sql, args, function(err,res) {
 		if (err) {
@@ -79,7 +79,7 @@ var checkTasks = function(tasks, playerId, res, cb) {
  * @param {Function} cb
  */
 taskDao.getTaskByIds = function(playerId, kindId, cb) {
-	var sql = 'select * from Task where playerId = ? and kindId = ?';
+	var sql = 'select * from `Task` where playerId = ? and kindId = ?';
 	var args = [playerId, kindId];
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
 		if (!!err) {
@@ -109,7 +109,7 @@ taskDao.getTaskByIds = function(playerId, kindId, cb) {
  * @param {Function} cb
  */
 taskDao.createTask = function(playerId, kindId, cb) {
-	var sql = 'insert into Task (playerId, kindId) values (?, ?)';
+	var sql = 'insert into `Task` (playerId, kindId) values (?, ?)';
 	var args = [playerId, kindId];
 	pomelo.app.get('dbclient').insert(sql, args, function(err, res) {
 		if (!!err) {
@@ -141,7 +141,7 @@ taskDao.tasksUpdate = function(tasks) {
  * @param {Function} cb
  */
 taskDao.update = function(val, cb) {
-	var sql = 'update Task set taskState = ?, startTime = ?, taskData = ? where id = ?';
+	var sql = 'update `Task` set taskState = ?, startTime = ?, taskData = ? where id = ?';
 	var taskData = val.taskData;
 	if (typeof taskData !== 'string') {
 		taskData = JSON.stringify(taskData);
@@ -163,7 +163,7 @@ taskDao.update = function(val, cb) {
  * @param {function} cb
  */
 taskDao.destroy = function(playerId, cb) {
-	var sql = 'delete from Task where playerId = ?';
+	var sql = 'delete from `Task` where playerId = ?';
 	var args = [playerId];
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
 		if (!!err) {

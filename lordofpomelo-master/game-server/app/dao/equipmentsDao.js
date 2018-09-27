@@ -13,7 +13,7 @@ var equipmentsDao = module.exports;
  * @param {function} cb Callback function
  */
 equipmentsDao.createEquipments = function (playerId, cb) {
-	var sql = 'insert into Equipments (playerId) values (?)';
+	var sql = 'insert into `Equipments` (playerId) values (?)';
 	var args = [playerId];
 
 	pomelo.app.get('dbclient').insert(sql, args, function(err, res) {
@@ -34,7 +34,7 @@ equipmentsDao.createEquipments = function (playerId, cb) {
  * @param {funciton} cb 
  */
 equipmentsDao.getEquipmentsByPlayerId = function(playerId, cb) {
-	var sql = 'select * from Equipments where playerId = ?';
+	var sql = 'select * from `Equipments` where playerId = ?';
 	var args = [playerId];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
@@ -60,7 +60,7 @@ equipmentsDao.getEquipmentsByPlayerId = function(playerId, cb) {
  * @param {function} cb
  */
 equipmentsDao.update = function(val, cb) {
-	var sql = 'update Equipments set weapon = ?, armor = ?, helmet = ?, necklace = ?, ring = ?, belt = ?, amulet = ?, legguard = ?, shoes = ?	where id = ?';
+	var sql = 'update `Equipments` set weapon = ?, armor = ?, helmet = ?, necklace = ?, ring = ?, belt = ?, amulet = ?, legguard = ?, shoes = ?	where id = ?';
 	var args = [val.weapon, val.armor, val.helmet, val.necklace, val.ring, val.belt, val.amulet, val.legguard, val.shoes, val.id];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
@@ -75,7 +75,7 @@ equipmentsDao.update = function(val, cb) {
  * @param {function} cb
  */
 equipmentsDao.destroy = function(playerId, cb) {
-	var sql = 'delete from Equipments where playerId = ?';
+	var sql = 'delete from `Equipments` where playerId = ?';
 	var args = [playerId];
 
 	pomelo.app.get('dbclient').query(sql, args, function(err, res) {
