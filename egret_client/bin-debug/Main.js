@@ -170,6 +170,7 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         console.log(FunctionType.MAIN_LINE);
         ManagerLibrary.layerMgr.init(this);
+        PomeloService.INS;
         console.log("stage x:", this.width, this.height);
         ManagerLibrary.tblMgr.addTable(TblItemBase, TblItemBase.TBL_NAME);
         ManagerLibrary.tblMgr.addTable(TblFunction, TblFunction.TBL_NAME);
