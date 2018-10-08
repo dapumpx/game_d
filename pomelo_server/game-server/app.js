@@ -1,5 +1,5 @@
 var pomelo = require('pomelo');
-
+var routeUtil = require('./app/util/routeUtil');
 /**
  * Init app for client.
  */
@@ -15,6 +15,10 @@ app.configure('production|development', 'connector', function(){
       useDict : true,
       useProtobuf : true
     });
+
+  app.route('main', routeUtil.main);
+
+  app.loadConfig('mysql', app.getBase() + '/config/mysql.json');
 });
 
 // start app

@@ -40,3 +40,176 @@
 [2018-09-06 11:36:00.016] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
 [2018-09-06 11:36:00.027] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"connector.entryHandler.entry","body":"hello pomelo","compressGzip":0}
 [2018-09-06 11:36:00.031] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: connector.entryHandler.entry, msg: {"code":200,"msg":"game server is ok."}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 15:48:21.398] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 15:48:22.183] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 15:48:22.186] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 15:48:22.186] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 525 ms
+[2018-10-08 15:48:23.170] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 15:55:52.263] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 15:55:52.276] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 15:55:52.277] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:ReferenceError: dispatcher is not defined
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:19:15)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+    at Service.beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:65:3)
+    at beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:242:8)
+[2018-10-08 15:55:52.278] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 15:55:58.274] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 15:55:58.274] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:35:09.052] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:35:09.885] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:35:09.888] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:35:09.888] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 549 ms
+[2018-10-08 16:35:10.806] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:35:51.922] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:35:51.936] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:35:51.938] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:ReferenceError: dispatcher is not defined
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:19:15)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+    at Service.beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:65:3)
+    at beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:242:8)
+[2018-10-08 16:35:51.939] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:35:57.935] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:35:57.935] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:37:40.504] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:37:40.975] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:37:40.978] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:37:40.978] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 404 ms
+[2018-10-08 16:37:41.906] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:38:54.016] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:38:54.030] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:38:54.032] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:ReferenceError: crc is not defined
+    at Object.module.exports.dispatch (D:\game_d\game_d\pomelo_server\game-server\app\util\dispatcher.js:2:26)
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:20:26)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+    at Service.beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:65:3)
+[2018-10-08 16:38:54.033] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:39:00.029] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:39:00.029] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:46:03.571] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:46:04.010] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:46:04.014] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:46:04.014] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 382 ms
+[2018-10-08 16:46:04.945] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:46:07.639] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:46:07.660] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:46:07.662] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:TypeError: Cannot read property 'length' of undefined
+    at Object.crc32 (D:\game_d\game_d\pomelo_server\game-server\node_modules\crc\lib\crc.js:322:14)
+    at Object.module.exports.dispatch (D:\game_d\game_d\pomelo_server\game-server\app\util\dispatcher.js:4:30)
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:20:26)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+[2018-10-08 16:46:07.663] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:46:19.673] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:46:19.673] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:48:46.535] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:48:46.987] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:48:46.990] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:48:46.990] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 393 ms
+[2018-10-08 16:48:47.896] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:48:50.263] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:48:50.272] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:48:50.274] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:TypeError: Cannot read property 'length' of undefined
+    at Object.crc32 (D:\game_d\game_d\pomelo_server\game-server\node_modules\crc\lib\crc.js:322:14)
+    at Object.module.exports.dispatch (D:\game_d\game_d\pomelo_server\game-server\app\util\dispatcher.js:4:30)
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:21:26)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+[2018-10-08 16:48:50.275] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:49:14.279] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:49:14.280] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:50:59.485] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:50:59.943] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:50:59.945] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:50:59.945] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 396 ms
+[2018-10-08 16:51:00.867] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:51:00.984] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:51:00.994] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:51:00.996] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to forward message:TypeError: Cannot read property 'length' of undefined
+    at Object.crc32 (D:\game_d\game_d\pomelo_server\game-server\node_modules\crc\lib\crc.js:322:14)
+    at Object.module.exports.dispatch (D:\game_d\game_d\pomelo_server\game-server\app\util\dispatcher.js:4:30)
+    at exp.main (D:\game_d\game_d\pomelo_server\game-server\app\util\routeUtil.js:21:26)
+    at D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\proxy.js:244:7
+    at getRouteTarget (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:357:11)
+    at proxyCB (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\client.js:302:5)
+    at Object.proxy [as forwardMessage] (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\util\proxy.js:61:7)
+    at doForward (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:334:50)
+    at dispatch (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:103:7)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+[2018-10-08 16:51:00.997] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:51:19.004] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:51:19.004] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 16:59:03.450] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 16:59:03.885] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 16:59:03.888] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 16:59:03.888] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 376 ms
+[2018-10-08 16:59:04.810] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 16:59:08.928] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 16:59:08.938] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 16:59:08.951] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to process remote message:Error: fail to find handler for undefined
+    at Service.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\handlerService.js:35:30)
+    at handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:375:25)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+    at Service.beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:65:3)
+    at beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:242:8)
+    at doHandle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:388:3)
+    at Server.pro.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:125:3)
+    at Component.pro.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\server.js:67:14)
+    at Remote.forwardMessage (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\remote\backend\msgRemote.js:45:10)
+    at Dispatcher.pro.route (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-server\dispatcher.js:52:10)
+[2018-10-08 16:59:08.951] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 16:59:23.934] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 16:59:23.935] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 17:02:23.297] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-10-08 17:02:23.758] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-10-08 17:02:23.762] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-10-08 17:02:23.762] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 401 ms
+[2018-10-08 17:02:24.646] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\modules\monitorwatcher.js] [39m[connector-server-1] receive addServer signal: {"action":"addServer","server":{"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main"}}
+[2018-10-08 17:02:26.039] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-10-08 17:02:26.050] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":1,"type":0,"compressRoute":0,"route":"main.loginHandler.entry","body":"hello world","compressGzip":0}
+[2018-10-08 17:02:26.062] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to process remote message:Error: fail to find handler for undefined
+    at Service.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\handlerService.js:35:30)
+    at handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:375:25)
+    at next (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:50:7)
+    at Service.beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\filterService.js:65:3)
+    at beforeFilter (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:242:8)
+    at doHandle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:388:3)
+    at Server.pro.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js:125:3)
+    at Component.pro.handle (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\server.js:67:14)
+    at Remote.forwardMessage (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\remote\backend\msgRemote.js:45:10)
+    at Dispatcher.pro.route (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-server\dispatcher.js:52:10)
+[2018-10-08 17:02:26.062] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.entry, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 17:02:35.042] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-10-08 17:02:35.043] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-10-08 17:03:49.259] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 2
+[2018-10-08 17:03:49.270] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 2, msg: {"id":1,"type":0,"compressRoute":1,"route":"main.loginHandler.login","body":"hello world","compressGzip":0}
+[2018-10-08 17:03:49.273] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 1, route: main.loginHandler.login, msg: {"status":1}, receivers: [2], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-10-08 17:03:55.268] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 2 heartbeat timeout.
+[2018-10-08 17:03:55.268] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
