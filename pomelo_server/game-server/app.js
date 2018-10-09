@@ -16,7 +16,7 @@ app.configure('production|development', 'connector', function(){
       useProtobuf : true
     });
 
-  app.route('main', routeUtil.main);
+  app.route('main-A', routeUtil.main);
 
   app.loadConfig('mysql', app.getBase() + '/config/mysql.json');
 });
