@@ -289,8 +289,8 @@ module PomeloForEgret{
                 this.heartbeatTimeoutId = egret.setTimeout(this.heartbeatTimeoutCb, this, gap);
             } else {
                 console.error('server heartbeat timeout',data);
-                this.emit(Pomelo.EVENT_HEART_BEAT_TIMEOUT,data);
                 this._disconnect();
+                this.emit(Pomelo.EVENT_HEART_BEAT_TIMEOUT,data);
             }
         }
         public off(event?,fn?){

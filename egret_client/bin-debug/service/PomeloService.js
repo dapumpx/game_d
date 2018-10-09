@@ -3,13 +3,22 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 };
 var PomeloService = (function () {
     function PomeloService() {
+        var _this = this;
+        this.onPomeloHeartBeatTimeoutHandler = function (event) {
+            console.log("Pomelo ready to reconnect...");
+            _this.connnect();
+        };
         this.pomelo = new PomeloForEgret.Pomelo();
         this.pomelo.on(PomeloForEgret.Pomelo.EVENT_IO_ERROR, this.onPomeloIOErrorHandler);
+        this.pomelo.on(PomeloForEgret.Pomelo.EVENT_HEART_BEAT_TIMEOUT, this.onPomeloHeartBeatTimeoutHandler);
+        this.connnect();
+    }
+    PomeloService.prototype.connnect = function () {
         this.pomelo.init({
             host: '127.0.0.1',
             port: 3010
         }, this.onPomeloConnectSuccessHandler);
-    }
+    };
     Object.defineProperty(PomeloService, "INS", {
         get: function () {
             if (PomeloService._instance == null) {

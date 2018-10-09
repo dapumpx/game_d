@@ -228,8 +228,8 @@ var PomeloForEgret;
             }
             else {
                 console.error('server heartbeat timeout', data);
-                this.emit(Pomelo.EVENT_HEART_BEAT_TIMEOUT, data);
                 this._disconnect();
+                this.emit(Pomelo.EVENT_HEART_BEAT_TIMEOUT, data);
             }
         };
         Pomelo.prototype.off = function (event, fn) {
