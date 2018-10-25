@@ -85,9 +85,11 @@ app.configure('production|development', 'area', function () {
 	//Load scene server and instance server
 	var server = app.curServer;
 	if (server.instance) {
+		console.log("area instance is init...")
 		instancePool.init(require('./config/instance.json'));
 		app.areaManager = instancePool;
 	} else {
+		console.log("area not instance is init...")
 		scene.init(dataApi.area.findById(server.area));
 		app.areaManager = scene;
 		/*

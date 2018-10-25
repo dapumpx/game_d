@@ -2,6 +2,10 @@ class PomeloService {
 	private static _instance: PomeloService;
 
 	public pomelo: PomeloForEgret.Pomelo;
+
+	private connectorServerIP:string;
+	private connectorServerPort:string;
+
 	public constructor() {
 		this.pomelo = new PomeloForEgret.Pomelo();
 		this.pomelo.on(PomeloForEgret.Pomelo.EVENT_IO_ERROR, this.onPomeloIOErrorHandler);
@@ -14,12 +18,33 @@ class PomeloService {
 	{
 		this.pomelo.init({
 			host: '127.0.0.1',
-			port: 3010
+			port: 3014
+		}, this.onPomeloConnectGateSuccessHandler);
+	}
+
+	private onPomeloConnectGateSuccessHandler = () => 
+	{
+		this.pomelo.request("gate.gateHandler.queryEntry",{uid:123123}, this.onQueryEntryResult);
+	}
+
+	private onQueryEntryResult = (result) =>
+	{
+		console.log(result);
+
+		this.connectorServerIP = result.host;
+		this.connectorServerPort = result.port;
+
+		this.pomelo.disconnect();
+		this.pomelo.off();
+
+		this.pomelo.init({
+			host: result.host,
+			port: result.port
 		}, this.onPomeloConnectSuccessHandler);
 	}
 
 	public static get INS(): PomeloService {
-		if (PomeloService._instance == null) {
+		if (PomeloService._instance == null) {	
 			PomeloService._instance = new PomeloService();
 		}
 

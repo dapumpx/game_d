@@ -1,5 +1,6 @@
 var pomelo = require('pomelo');
 var routeUtil = require('./app/util/routeUtil');
+
 /**
  * Init app for client.
  */
@@ -29,10 +30,11 @@ app.configure('production|development', 'gate', function(){
 app.configure('production|development', function() {
 	// route configures
 	app.route('chat', routeUtil.chat);
-
 	// filter configures
 	app.filter(pomelo.timeout());
 });
+
+
 
 // start app
 app.start();

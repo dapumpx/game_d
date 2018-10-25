@@ -5,14 +5,14 @@ var channelUtil = require('../../../util/channelUtil');
 var utils = require('../../../util/utils');
 var logger = require('pomelo-logger').getLogger(__filename);
 
-module.exports = function(app) {
+module.exports = function (app) {
 	return new Handler(app);
 };
 
-var Handler = function(app) {
+var Handler = function (app) {
 	this.app = app;
 
-	if(!this.app)
+	if (!this.app)
 		logger.error(app);
 };
 
@@ -26,42 +26,55 @@ var pro = Handler.prototype;
  * @param  {Function} next    next stemp callback
  * @return {Void}
  */
-pro.entry = function(msg, session, next) {
-	var token = msg.token, self = this;
+pro.entry = function (msg, session, next) {
+	var token = msg.token,
+		self = this;
 
-	if(!token) {
-		next(new Error('invalid entry request: empty token'), {code: Code.FAIL});
+	if (!token) {
+		next(new Error('invalid entry request: empty token'), {
+			code: Code.FAIL
+		});
 		return;
 	}
 
 	var uid, players, player;
 	async.waterfall([
-		function(cb) {
+		function (cb) {
 			// auth token
 			self.app.rpc.auth.authRemote.auth(session, token, cb);
-		}, function(code, user, cb) {
+		},
+		function (code, user, cb) {
 			// query player info by user id
-			if(code !== Code.OK) {
-				next(null, {code: code});
+			if (code !== Code.OK) {
+				next(null, {
+					code: code
+				});
 				return;
 			}
 
-			if(!user) {
-				next(null, {code: Code.ENTRY.FA_USER_NOT_EXIST});
+			if (!user) {
+				next(null, {
+					code: Code.ENTRY.FA_USER_NOT_EXIST
+				});
 				return;
 			}
 
 			uid = user.id;
 			userDao.getPlayersByUid(user.id, cb);
-		}, function(res, cb) {
+		},
+		function (res, cb) {
 			// generate session and register chat status
 			players = res;
 			self.app.get('sessionService').kick(uid, cb);
-		}, function(cb) {
+		},
+		function (cb) {
 			session.bind(uid, cb);
-		}, function(cb) {
-			if(!players || players.length === 0) {
-				next(null, {code: Code.OK});
+		},
+		function (cb) {
+			if (!players || players.length === 0) {
+				next(null, {
+					code: Code.OK
+				});
 				return;
 			}
 
@@ -72,28 +85,37 @@ pro.entry = function(msg, session, next) {
 			session.set('playerId', player.id);
 			session.on('closed', onUserLeave.bind(null, self.app));
 			session.pushAll(cb);
-		}, function(cb) {
+		},
+		function (cb) {
 			self.app.rpc.chat.chatRemote.add(session, player.userId, player.name,
 				channelUtil.getGlobalChannelName(), cb);
 		}
-	], function(err) {
-		if(err) {
-			next(err, {code: Code.FAIL});
+	], function (err) {
+		if (err) {
+			next(err, {
+				code: Code.FAIL
+			});
 			return;
 		}
 
-		next(null, {code: Code.OK, player: players ? players[0] : null});
+		next(null, {
+			code: Code.OK,
+			player: players ? players[0] : null
+		});
 	});
 };
 
 var onUserLeave = function (app, session, reason) {
-	if(!session || !session.uid) {
+	if (!session || !session.uid) {
 		return;
 	}
 
 	utils.myPrint('1 ~ OnUserLeave is running ...');
-	app.rpc.area.playerRemote.playerLeave(session, {playerId: session.get('playerId'), instanceId: session.get('instanceId')}, function(err){
-		if(!!err){
+	app.rpc.area.playerRemote.playerLeave(session, {
+		playerId: session.get('playerId'),
+		instanceId: session.get('instanceId')
+	}, function (err) {
+		if (!!err) {
 			logger.error('user leave error! %j', err);
 		}
 	});

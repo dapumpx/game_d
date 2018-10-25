@@ -4,6 +4,8 @@
   "private": false,
   "dependencies": {
     "crc": "0.2.0",
+    "passport": "^0.4.0",
+    "passport-oauth2": "^1.4.0",
     "pomelo": "2.2.x"
   }
 }

@@ -4,6 +4,20 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var PomeloService = (function () {
     function PomeloService() {
         var _this = this;
+        this.onPomeloConnectGateSuccessHandler = function () {
+            _this.pomelo.request("gate.gateHandler.queryEntry", { uid: 123123 }, _this.onQueryEntryResult);
+        };
+        this.onQueryEntryResult = function (result) {
+            console.log(result);
+            _this.connectorServerIP = result.host;
+            _this.connectorServerPort = result.port;
+            _this.pomelo.disconnect();
+            _this.pomelo.off();
+            _this.pomelo.init({
+                host: result.host,
+                port: result.port
+            }, _this.onPomeloConnectSuccessHandler);
+        };
         this.onPomeloHeartBeatTimeoutHandler = function (event) {
             console.log("Pomelo ready to reconnect...");
             _this.connnect();
@@ -16,8 +30,8 @@ var PomeloService = (function () {
     PomeloService.prototype.connnect = function () {
         this.pomelo.init({
             host: '127.0.0.1',
-            port: 3010
-        }, this.onPomeloConnectSuccessHandler);
+            port: 3014
+        }, this.onPomeloConnectGateSuccessHandler);
     };
     Object.defineProperty(PomeloService, "INS", {
         get: function () {
