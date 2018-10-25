@@ -3,7 +3,11 @@
 	"version": "0.0.1",
 	"private": false,
 	"dependencies": {
-		"express": "3.4.0",
+		"body-parser": "^1.18.3",
+		"errorhandler": "^1.5.0",
+		"express": "4.16.4",
+		"method-override": "^3.0.0",
+		"multer": "^1.4.1",
 		"phaser": "^3.15.1"
 	}
 }
