@@ -118,3 +118,7 @@
 [2018-10-09 12:16:18.023] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "main", "127.0.0.1", 3005
 [2018-10-09 12:16:18.108] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
 [2018-10-09 18:40:45.071] [DEBUG] pomelo-admin - [36m[MasterSocket] [39mdisconnect main-server-1 main {"main":"D:\\game_d\\game_d\\pomelo_server\\game-server\\app.js","env":"development","id":"main-server-1","host":"127.0.0.1","port":3250,"area":1,"serverType":"main","pid":13840}
+[2018-10-29 14:54:18.183] [INFO] pomelo-admin - [32m[MqttServer] [39m[MqttServer] listen on 3005
+[2018-10-29 14:54:18.219] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "master", "127.0.0.1", 3005
+[2018-10-29 14:54:19.497] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "main", "127.0.0.1", 3005
+[2018-10-29 14:54:19.688] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
