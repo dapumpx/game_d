@@ -33,8 +33,8 @@ var MainRoleInfo = (function (_super) {
     };
     MainRoleInfo.prototype.onBtn1ClickHandler = function (e) {
         var req = {};
-        req['user_name'] = "许志豪";
-        req['password'] = "许志豪";
+        req['user_name'] = "严立夤";
+        req['password'] = "严立夤";
         PomeloService.INS.pomelo.request("main.loginHandler.login", req, function (result) {
             //消息回调
             console.log("request", result);
@@ -43,3 +43,4 @@ var MainRoleInfo = (function (_super) {
     return MainRoleInfo;
 }(BaseComponent));
 __reflect(MainRoleInfo.prototype, "MainRoleInfo");
+//# sourceMappingURL=MainRoleInfo.js.map

@@ -34,3 +34,4 @@ var TestView = (function (_super) {
     return TestView;
 }(BaseModuleView));
 __reflect(TestView.prototype, "TestView");
+//# sourceMappingURL=TestView.js.map

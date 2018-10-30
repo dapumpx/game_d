@@ -1,5 +1,7 @@
-var uuidv4 = require('uuid/v4');
-var pomelo = require('pomelo');
+const uuidv4 = require('uuid/v4');
+const pomelo = require('pomelo');
+const User = require('./../../../models/user');
+const Sequelize = require('sequelize');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -18,36 +20,46 @@ Handler.prototype.login = function (msg, session, next) {
         });
         return;
     }
-    var sql = 'select * from `user` where `user_name` = ?';
-    var args = [msg.user_name];
+    pomelo.app.get('sClient').authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
 
-    pomelo.app.get('dbclient').query(sql, args, function (err, res) {
-        if (res.length == 0) {
-            var sqlInsert = "INSERT INTO `game_d`.`user` (`id`, `user_name`, `name`, `password`) VALUES (?, ?, ?, ?)";
-            var newUuid = uuidv4();
-            var argsInsert = [newUuid, msg.user_name, "random", msg.password];
-            pomelo.app.get('dbclient').query(sqlInsert, argsInsert, function (err, res) {
+    var UserC = User(pomelo.app.get('sClient'), Sequelize.DataTypes)
+    UserC.findOne({
+        where: {
+            user_name: msg.user_name
+        }
+    }).then(user => {
+        if (user) {
+            if (user.password == msg.password) {
                 next(null, {
-                    user_info: {
-                        id: newUuid,
-                        user_name: msg.user_name,
-                        name: "random"
-                    },
-                    status: 1
-                });
-            });
-        } else {
-            if (msg.password == res[0].password) {
-                next(null, {
-                    user_info: res[0],
-                    status: 1,
-                    type: 'ok'
+                    code: 1,
+                    user: user
                 });
             } else {
                 next(null, {
                     code: 900001
                 });
             }
+        } else {
+            UserC.create({
+                id: uuidv4(),
+                user_name: msg.user_name,
+                name: 'random',
+                password: msg.password
+            }).then(user => {
+                next(null, {
+                    code: 900003,
+                    user: user
+                });
+            });
         }
     });
+
+
+
 };

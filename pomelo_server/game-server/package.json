@@ -5,7 +5,9 @@
     "dependencies": {
         "generic-pool": "^3.4.2",
         "mysql": ">=2.0",
+        "mysql2": "^1.6.1",
         "pomelo": "2.2.5",
+        "sequelize": "^4.41.0",
         "uuid": "^3.3.2"
     }
 }

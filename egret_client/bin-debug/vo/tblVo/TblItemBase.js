@@ -25,3 +25,4 @@ var TblItemBase = (function (_super) {
     return TblItemBase;
 }(TblBase));
 __reflect(TblItemBase.prototype, "TblItemBase");
+//# sourceMappingURL=TblItemBase.js.map

@@ -11,3 +11,4 @@ var LayerType = (function () {
     return LayerType;
 }());
 __reflect(LayerType.prototype, "LayerType");
+//# sourceMappingURL=LayerType.js.map

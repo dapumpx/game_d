@@ -32,3 +32,4 @@ var TblManager = (function () {
     return TblManager;
 }());
 __reflect(TblManager.prototype, "TblManager");
+//# sourceMappingURL=TblManager.js.map

@@ -10,3 +10,4 @@ var FuncDataVo = (function () {
     return FuncDataVo;
 }());
 __reflect(FuncDataVo.prototype, "FuncDataVo");
+//# sourceMappingURL=FuncDataVo.js.map

@@ -34,7 +34,8 @@ app.configure('production|development', 'main|connector', function () {
   app.loadConfig('mysql', app.getBase() + '/config/mysql.json');
 	var dbclient = require('./app/dao/mysql/mysql').init(app);
   app.set('dbclient', dbclient);
-  
+  var sClient = require('./app/dao/mysql/sequlize_pool').init(app);
+  app.set('sClient', sClient);
 	// app.load(pomelo.sync, {path:__dirname + '/app/dao/mapping', dbclient: dbclient});
 
   // app.use(sync, {

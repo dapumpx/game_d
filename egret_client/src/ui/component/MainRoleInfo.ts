@@ -31,8 +31,8 @@ class MainRoleInfo extends BaseComponent {
 
 	private onBtn1ClickHandler(e: egret.TouchEvent): void {
 		var req = {};
-		req['user_name'] = "许志豪";
-		req['password'] = "许志豪";
+		req['user_name'] = "严立夤";
+		req['password'] = "严立夤";
 		PomeloService.INS.pomelo.request("main.loginHandler.login", req, function (result) {
 			//消息回调
 			console.log("request", result);	

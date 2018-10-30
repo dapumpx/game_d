@@ -10,3 +10,4 @@ var FunctionType = (function () {
     return FunctionType;
 }());
 __reflect(FunctionType.prototype, "FunctionType");
+//# sourceMappingURL=FunctionType.js.map

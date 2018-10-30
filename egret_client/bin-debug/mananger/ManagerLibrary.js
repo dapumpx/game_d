@@ -13,3 +13,4 @@ var ManagerLibrary = (function () {
     return ManagerLibrary;
 }());
 __reflect(ManagerLibrary.prototype, "ManagerLibrary");
+//# sourceMappingURL=ManagerLibrary.js.map

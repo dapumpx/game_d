@@ -7,3 +7,4 @@ var TblBase = (function () {
     return TblBase;
 }());
 __reflect(TblBase.prototype, "TblBase");
+//# sourceMappingURL=TblBase.js.map

@@ -19,3 +19,4 @@ var ModuleHelper = (function () {
     return ModuleHelper;
 }());
 __reflect(ModuleHelper.prototype, "ModuleHelper");
+//# sourceMappingURL=ModuleHelper.js.map

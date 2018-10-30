@@ -20,3 +20,4 @@ var LayerBase = (function (_super) {
     return LayerBase;
 }(egret.DisplayObjectContainer));
 __reflect(LayerBase.prototype, "LayerBase");
+//# sourceMappingURL=LayerBase.js.map

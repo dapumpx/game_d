@@ -1,0 +1,1 @@
+{"version":3,"file":"FuncDataVo.js","sourceRoot":"","sources":["../../../src/vo/customVo/FuncDataVo.ts"],"names":[],"mappings":";;;AAAA;IAKC,oBAAmB,GAAU,EAAE,UAAiB,EAAE,UAAiB;QAClE,IAAI,CAAC,EAAE,GAAG,GAAG,CAAC;QACd,IAAI,CAAC,SAAS,GAAG,UAAU,CAAC;QAC5B,IAAI,CAAC,SAAS,GAAG,UAAU,CAAC;IAC7B,CAAC;IACF,iBAAC;AAAD,CAAC,AAVD,IAUC;AAVK,UAAA,UAAU,yBAUf,CAAA"}
