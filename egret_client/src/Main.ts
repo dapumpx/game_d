@@ -106,6 +106,7 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
         console.log(FunctionType.MAIN_LINE);
+        ManagerLibrary.init();
         ManagerLibrary.layerMgr.init(this);
         PomeloService.INS;
 

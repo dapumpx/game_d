@@ -25,4 +25,3 @@ var TblFunction = (function (_super) {
     return TblFunction;
 }(TblBase));
 __reflect(TblFunction.prototype, "TblFunction");
-//# sourceMappingURL=TblFunction.js.map

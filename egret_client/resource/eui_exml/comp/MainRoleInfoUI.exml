@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MainRoleInfoUI" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Button id="btn1" label="Test" x="26" y="110" anchorOffsetX="0" width="90" anchorOffsetY="0" height="40"/>
-	<e:Button id="btn2" label="Send" x="135" y="110" width="90" height="40"/>
-	<e:TextInput id="txtRouter" width="266" height="28" x="26" y="14" anchorOffsetX="0" anchorOffsetY="0" text="123"/>
-	<e:TextInput id="txtParams" width="266" height="28" x="26" y="57" anchorOffsetX="0" anchorOffsetY="0" text="123"/>
+	<e:Label id="btnLink1" text="Test 1" x="27" y="25" textColor="0x000000"/>
+	<e:Label text="Test 2" x="139" y="25" textColor="0x000000" id="btnLink0"/>
+
+
+
+
 </e:Skin>

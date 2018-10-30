@@ -35,4 +35,3 @@ var BaseModuleView = (function (_super) {
     return BaseModuleView;
 }(BaseComponent));
 __reflect(BaseModuleView.prototype, "BaseModuleView");
-//# sourceMappingURL=BaseModuleView.js.map

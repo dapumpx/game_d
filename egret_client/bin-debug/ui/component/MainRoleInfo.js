@@ -16,17 +16,26 @@ var MainRoleInfo = (function (_super) {
         return _this;
     }
     MainRoleInfo.prototype.onSkinLoadComplete = function () {
-        this.btn1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn1ClickHandler, this);
-        this.btn2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn2ClickHandler, this);
+        this.btnLink0.textFlow = [
+            { text: "Click 1", style: { underline: true } }
+        ];
+        this.btnLink1.textFlow = [
+            { text: "Click 2", style: { underline: true } }
+        ];
+        this.btnLink0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn1ClickHandler, this);
+        // this.btnLink1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn2ClickHandler, this);
     };
     MainRoleInfo.prototype.onBtn2ClickHandler = function (e) {
-        PomeloService.INS.pomelo.request(this.txtRouter.text, this.txtParams.text, function (result) {
-            //消息回调
-            console.log("request", result);
-        });
+        // PomeloService.INS.pomelo.request(this.txtRouter.text, this.txtParams.text, function (result) {
+        // 	//消息回调
+        // 	console.log("request", result);
+        // });
     };
     MainRoleInfo.prototype.onBtn1ClickHandler = function (e) {
-        PomeloService.INS.pomelo.request("main.loginHandler.login", "hello world", function (result) {
+        var req = {};
+        req['user_name'] = "许志豪";
+        req['password'] = "许志豪";
+        PomeloService.INS.pomelo.request("main.loginHandler.login", req, function (result) {
             //消息回调
             console.log("request", result);
         });
@@ -34,4 +43,3 @@ var MainRoleInfo = (function (_super) {
     return MainRoleInfo;
 }(BaseComponent));
 __reflect(MainRoleInfo.prototype, "MainRoleInfo");
-//# sourceMappingURL=MainRoleInfo.js.map

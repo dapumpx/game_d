@@ -3,7 +3,9 @@
     "version": "0.0.1",
     "private": false,
     "dependencies": {
+        "generic-pool": "^3.4.2",
+        "mysql": ">=2.0",
         "pomelo": "2.2.5",
-        "mysql": ">=2.0"
+        "uuid": "^3.3.2"
     }
 }

@@ -17,4 +17,3 @@ var FunctionManager = (function () {
     return FunctionManager;
 }());
 __reflect(FunctionManager.prototype, "FunctionManager");
-//# sourceMappingURL=FunctionManager.js.map

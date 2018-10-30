@@ -13,12 +13,12 @@ class TestView extends BaseModuleView
 
 		this.closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTap, this);
 
-		var sp:egret.Sprite = new egret.Sprite();
-		sp.graphics.beginFill(0x00ff00, 1);
-		sp.graphics.drawRect(0, 0, this.width, this.height);
-		sp.graphics.endFill();
+		// var sp:egret.Sprite = new egret.Sprite();
+		// sp.graphics.beginFill(0x00ff00, 1);
+		// sp.graphics.drawRect(0, 0, this.width, this.height);
+		// sp.graphics.endFill();
 
-		this.addChildAt(sp, 0);
+		// this.addChildAt(sp, 0);
 
 		let mainRoleInfo:MainRoleInfo = new MainRoleInfo();
 		this.addChild(mainRoleInfo);

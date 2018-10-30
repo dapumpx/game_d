@@ -18,11 +18,11 @@ var TestView = (function (_super) {
     TestView.prototype.onSkinLoadComplete = function () {
         _super.prototype.onSkinLoadComplete.call(this);
         this.closeButton.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTap, this);
-        var sp = new egret.Sprite();
-        sp.graphics.beginFill(0x00ff00, 1);
-        sp.graphics.drawRect(0, 0, this.width, this.height);
-        sp.graphics.endFill();
-        this.addChildAt(sp, 0);
+        // var sp:egret.Sprite = new egret.Sprite();
+        // sp.graphics.beginFill(0x00ff00, 1);
+        // sp.graphics.drawRect(0, 0, this.width, this.height);
+        // sp.graphics.endFill();
+        // this.addChildAt(sp, 0);
         var mainRoleInfo = new MainRoleInfo();
         this.addChild(mainRoleInfo);
         // console.log("x", this.x, "y", this.y);
@@ -34,4 +34,3 @@ var TestView = (function (_super) {
     return TestView;
 }(BaseModuleView));
 __reflect(TestView.prototype, "TestView");
-//# sourceMappingURL=TestView.js.map

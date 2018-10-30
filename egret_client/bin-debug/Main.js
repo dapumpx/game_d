@@ -169,6 +169,7 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         console.log(FunctionType.MAIN_LINE);
+        ManagerLibrary.init();
         ManagerLibrary.layerMgr.init(this);
         PomeloService.INS;
         console.log("stage x:", this.width, this.height);
@@ -284,4 +285,3 @@ var Main = (function (_super) {
     return Main;
 }(egret.DisplayObjectContainer));
 __reflect(Main.prototype, "Main");
-//# sourceMappingURL=Main.js.map
