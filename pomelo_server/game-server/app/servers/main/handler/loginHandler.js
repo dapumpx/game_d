@@ -1,6 +1,7 @@
 const uuidv4 = require('uuid/v4');
 const pomelo = require('pomelo');
 const User = require('./../../../models/user');
+const Team = require('./../../../models/team');
 const Sequelize = require('sequelize');
 
 module.exports = function (app) {
@@ -13,6 +14,7 @@ var Handler = function (app) {
 // var dataApi = require('../../../util/dataApi');
 
 Handler.prototype.login = function (msg, session, next) {
+    // console.log(session);
 
     if (!msg.user_name) {
         next(null, {
@@ -28,6 +30,22 @@ Handler.prototype.login = function (msg, session, next) {
             console.error('Unable to connect to the database:', err);
         });
 
+    var UserC = User(pomelo.app.get('sClient'), Sequelize.DataTypes)
+    var TeamC = Team(pomelo.app.get('sClient'), Sequelize.DataTypes);
+    TeamC.findOne({
+        include: [{
+            model: UserC,
+            as: 'user'
+        }],
+        where: {
+            id: '763b7e9f-02f1-43bc-a6f6-bf0730fcd431'
+
+
+        }
+    }).then(t => {
+        console.log(t.user.name);
+    })
+    return;
     var UserC = User(pomelo.app.get('sClient'), Sequelize.DataTypes)
     UserC.findOne({
         where: {

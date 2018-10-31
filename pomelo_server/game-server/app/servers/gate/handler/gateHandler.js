@@ -19,6 +19,12 @@ var handler = Handler.prototype;
  *
  */
 handler.queryEntry = function(msg, session, next) {
+	// console.log(123123);
+	// console.log(session);
+	session.bind(333);
+	// console.log(session);
+	session.push();
+	// console.log(session);
 	var uid = msg.uid;
 	if(!uid) {
 		next(null, {
