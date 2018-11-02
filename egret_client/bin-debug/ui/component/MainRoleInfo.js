@@ -32,10 +32,16 @@ var MainRoleInfo = (function (_super) {
         // });
     };
     MainRoleInfo.prototype.onBtn1ClickHandler = function (e) {
+        // var req = {};
+        // req['user_name'] = "严立夤";
+        // req['password'] = "严立夤";
+        // PomeloService.INS.pomelo.request("main.loginHandler.login", req, function (result) {
+        // 	//消息回调
+        // 	console.log("request", result);	
+        // });
         var req = {};
-        req['user_name'] = "严立夤";
-        req['password'] = "严立夤";
-        PomeloService.INS.pomelo.request("main.loginHandler.login", req, function (result) {
+        req['user_id'] = "763b7e9f-02f1-43bc-a6f6-bf0730fcd439";
+        PomeloService.INS.pomelo.request("main.guaJiHandler.view", req, function (result) {
             //消息回调
             console.log("request", result);
         });

@@ -129,3 +129,44 @@
     at listOnTimeout (timers.js:252:5)
     at Timer.processTimers (timers.js:212:10)
 [2018-10-31 18:15:56.289] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":25,"type":0,"compressRoute":1,"route":"main.loginHandler.login","body":{"user_name":"严立夤","password":"严立夤"},"compressGzip":0},{"id":1,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
+[2018-10-31 18:36:22.396] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc socket connector-server-1 is error, remote server main-server-1 host: 127.0.0.1, port: 3250
+[2018-11-02 16:52:18.882] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+[2018-11-02 16:52:18.883] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-02 16:52:18.883] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":4,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"'763b7e9f-02f1-43bc-a6f6-bf0730fcd439'"},"compressGzip":0},{"id":1,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
+[2018-11-02 16:53:41.262] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+[2018-11-02 16:53:41.262] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-02 16:53:41.263] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":9,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"'763b7e9f-02f1-43bc-a6f6-bf0730fcd439'"},"compressGzip":0},{"id":1,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
+[2018-11-02 16:54:51.392] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-1 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3250
+[2018-11-02 16:54:51.392] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-1 callback timeout 30000, remote server 1 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-02 16:54:51.392] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":2,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0},{"id":2,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
+[2018-11-02 16:55:50.524] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-1 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3250
+[2018-11-02 16:55:50.524] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-1 callback timeout 30000, remote server 2 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-02 16:55:50.524] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":5,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0},{"id":4,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
+[2018-11-02 16:57:29.796] [ERROR] pomelo-rpc - [31m[mqtt-mailbox] [39mrpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+[2018-11-02 16:57:29.796] [ERROR] pomelo-rpc - [31m[MailStation] [39m[pomelo-rpc] fail to send message Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-02 16:57:29.796] [ERROR] pomelo-rpc - [31m[failprocess] [39mrpc failed with error, remote server: main-server-1, msg: {"namespace":"sys","serverType":"main","service":"msgRemote","method":"forwardMessage","args":[{"id":10,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0},{"id":1,"frontendId":"connector-server-1","uid":null,"settings":{}}]}, error code: 5
