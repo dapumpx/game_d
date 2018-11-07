@@ -116,7 +116,7 @@ app.configure('production|development', 'area', function () {
 
 app.configure('production|development', 'manager', function () {
 	var events = pomelo.events;
-
+1
 	app.event.on(events.ADD_SERVERS, instanceManager.addServers);
 
 	app.event.on(events.REMOVE_SERVERS, instanceManager.removeServers);
