@@ -105,9 +105,10 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
-        console.log(FunctionType.MAIN_LINE);
         ManagerLibrary.init();
         ManagerLibrary.layerMgr.init(this);
+        TimerManager.init();
+        UserDataModel.uid = "763b7e9f-02f1-43bc-a6f6-bf0730fcd439";
         PomeloService.INS;
 
         console.log("stage x:", this.width, this.height);

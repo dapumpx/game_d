@@ -42,7 +42,7 @@ Handler.prototype.login = function (msg, session, next) {
 
 
         }
-    }).then(t => {
+    }).then(t => {    
         console.log(t.user.name);
     })
     return;

@@ -97,7 +97,8 @@ var PomeloForEgret;
         Pomelo.prototype.on = function (event, fn) {
             (this._callbacks[event] = this._callbacks[event] || []).push(fn);
         };
-        Pomelo.prototype.request = function (route, msg, cb) {
+        Pomelo.prototype.request = function (route, msg, cb, objThis) {
+            if (objThis === void 0) { objThis = null; }
             if (arguments.length === 2 && typeof msg === 'function') {
                 cb = msg;
                 msg = {};
@@ -122,6 +123,9 @@ var PomeloForEgret;
                 console.groupEnd();
             }
             this.sendMessage(reqId, route, msg);
+            if (cb && objThis) {
+                cb = cb.bind(objThis);
+            }
             this.callbacks[reqId] = cb;
             this.routeMap[reqId] = route;
         };

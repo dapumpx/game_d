@@ -130,7 +130,7 @@ module PomeloForEgret{
         public on(event, fn){
             (this._callbacks[event] = this._callbacks[event] || []).push(fn);
         }
-        public request(route, msg, cb) {
+        public request(route, msg, cb, objThis=null) {
             if(arguments.length === 2 && typeof msg === 'function') {
                 cb = msg;
                 msg = {};
@@ -158,6 +158,11 @@ module PomeloForEgret{
             }
 
             this.sendMessage(reqId, route, msg);
+
+            if(cb && objThis)
+            {
+                cb = (cb as Function).bind(objThis);
+            }
 
             this.callbacks[reqId] = cb;
             this.routeMap[reqId] = route;

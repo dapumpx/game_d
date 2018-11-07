@@ -1,7 +1,7 @@
 class MainRoleInfo extends BaseComponent {
 	public btnLink0:eui.Label;
 	public btnLink1:eui.Label;
-
+	private gameTimer:GameTimer;
 	public constructor() {
 		super();
 
@@ -10,7 +10,7 @@ class MainRoleInfo extends BaseComponent {
 
 	public onSkinLoadComplete(): void {
 		this.btnLink0.textFlow = <Array<egret.ITextElement>>[ 
-			{ text:"Click 1", style:{underline:true} }
+			{ text:"Test View", style:{underline:true} }
 		];
 
 		this.btnLink1.textFlow = <Array<egret.ITextElement>>[ 
@@ -19,6 +19,12 @@ class MainRoleInfo extends BaseComponent {
 
 		this.btnLink0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn1ClickHandler, this);
 		// this.btnLink1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn2ClickHandler, this);
+
+		this.gameTimer = new GameTimer();
+		this.gameTimer.x = 50;
+		this.gameTimer.y = 200;
+		this.addChild(this.gameTimer);
+		
 	}
 
 	private onBtn2ClickHandler(e:egret.TouchEvent):void
@@ -39,10 +45,12 @@ class MainRoleInfo extends BaseComponent {
 		// });
 
 		var req = {};
-		req['user_id'] = "763b7e9f-02f1-43bc-a6f6-bf0730fcd439";
+		req['user_id'] = UserDataModel.uid;
 		PomeloService.INS.pomelo.request("main.guaJiHandler.view", req, function (result) {
 			//消息回调
 			console.log("request", result);	
-		});
+
+			this.gameTimer.setStartTime(result.info.start_time);
+		}, this);
 	}
 }
