@@ -36,6 +36,7 @@ app.configure('production|development', function () {
 		var areaIdMap = {};
 		for (var id in areas) {
 			areaIdMap[areas[id].area] = areas[id].id;
+			console.log("--------" + areas[id].id + "---------" + areas[id].area)
 		}
 		app.set('areaIdMap', areaIdMap);
 	}
@@ -116,7 +117,7 @@ app.configure('production|development', 'area', function () {
 
 app.configure('production|development', 'manager', function () {
 	var events = pomelo.events;
-1
+
 	app.event.on(events.ADD_SERVERS, instanceManager.addServers);
 
 	app.event.on(events.REMOVE_SERVERS, instanceManager.removeServers);

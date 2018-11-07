@@ -1,4 +1,6 @@
 var guaJiDao = require('../../../dao/guaJiDao');
+var userDao = require('../../../dao/userDao');
+var async = require('async');
 
 module.exports = function (app) {
     return new Handler(app);
@@ -15,33 +17,26 @@ Handler.prototype.view = function (msg, session, next) {
             info: result
         });
     });
-   
-    return;
+}
 
-    // var GuaJiC = GuaJi(pomelo.app.get('sClient'), Sequelize.DataTypes);
-    // GuaJiC.findOne({
-    //     where: {
-    //         user_id: msg.user_id
-    //     }
-    // }).then(g => {
-    //     if (g) {
-    //         next(null, {
-    //             code: 1,
-    //             info: g
-    //         });
-    //     } else {
-    //         console.log(Date.now());
-    //         GuaJiC.create({
-    //             user_id: msg.user_id,
-    //             start_time: Date.now(),
-    //             stage_id: 1,
-    //             chapter_id: 1
-    //         }).then(g => {
-    //             next(null, {
-    //                 code: 1,
-    //                 info: g
-    //             });
-    //         });
-    //     }
-    // })
+Handler.prototype.checkExp = function(msg, session, next)
+{
+    async.waterfall([
+        function(callback) {
+            guaJiDao.checkExp(msg.user_id, callback);
+        },
+        function(totalExp, callback) {
+            userDao.addExp(msg.user_id, totalExp, callback);
+        },
+        function(callback) {
+            // arg1 now equals 'three'
+            guaJiDao.clearTime(msg.user_id, function(){
+                next(null, {
+                    code: 1
+                });
+            });
+        }
+    ], function (err, result) {
+        // result now equals 'done'
+    });
 }

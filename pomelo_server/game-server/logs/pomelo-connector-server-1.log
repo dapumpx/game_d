@@ -1710,3 +1710,74 @@
 [2018-11-07 11:02:49.110] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 4
 [2018-11-07 11:02:55.513] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 5
 [2018-11-07 11:02:57.956] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 5
+[2018-11-07 11:56:06.286] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 11:56:08.283] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-11-07 11:56:08.287] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-11-07 11:56:08.288] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 681 ms
+[2018-11-07 11:56:26.990] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-11-07 11:56:30.909] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":1,"route":"main.guaJiHandler.checkExp","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 11:56:39.018] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-11-07 11:56:39.019] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-11-07 11:57:00.914] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to process remote message:Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-07 11:57:00.914] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 2, route: main.guaJiHandler.checkExp, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-11-07 11:57:00.916] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39mFail to send message for non-existing session, sid: 1 msg: {"code":500}
+[2018-11-07 11:58:05.196] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 11:58:06.404] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-11-07 11:58:06.408] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-11-07 11:58:06.408] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 512 ms
+[2018-11-07 11:58:12.367] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-11-07 11:58:14.637] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":4,"type":0,"compressRoute":1,"route":"main.guaJiHandler.checkExp","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 11:58:21.387] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-11-07 11:58:21.387] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-11-07 11:58:44.644] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to process remote message:Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-07 11:58:44.644] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 4, route: main.guaJiHandler.checkExp, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-11-07 11:58:44.645] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39mFail to send message for non-existing session, sid: 1 msg: {"code":500}
+[2018-11-07 12:00:07.524] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 12:00:38.451] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 12:02:42.343] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 12:02:43.429] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-11-07 12:02:43.432] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-11-07 12:02:43.432] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 449 ms
+[2018-11-07 12:02:53.932] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-11-07 12:02:59.956] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":6,"type":0,"compressRoute":1,"route":"main.guaJiHandler.checkExp","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 12:03:05.952] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-11-07 12:03:05.953] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-11-07 12:03:23.827] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 12:03:24.961] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-11-07 12:03:24.964] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-11-07 12:03:24.965] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 473 ms
+[2018-11-07 12:03:32.271] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-11-07 12:03:34.719] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":8,"type":0,"compressRoute":1,"route":"main.guaJiHandler.checkExp","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 12:03:41.288] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-11-07 12:03:41.288] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-11-07 12:04:04.725] [ERROR] pomelo - [31m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\server\server.js] [39mfail to process remote message:Error: rpc connector-server-1 callback timeout 30000, remote server 0 host: 127.0.0.1, port: 3250
+    at Timeout.<anonymous> (D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo-rpc\lib\rpc-client\mailboxes\mqtt-mailbox.js:257:16)
+    at ontimeout (timers.js:425:11)
+    at tryOnTimeout (timers.js:289:5)
+    at listOnTimeout (timers.js:252:5)
+    at Timer.processTimers (timers.js:212:10)
+[2018-11-07 12:04:04.725] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 8, route: main.guaJiHandler.checkExp, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-11-07 12:04:04.727] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39mFail to send message for non-existing session, sid: 1 msg: {"code":500}
+[2018-11-07 12:04:37.545] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-11-07 12:04:38.676] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-11-07 12:04:38.678] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-11-07 12:04:38.679] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 448 ms
+[2018-11-07 12:05:10.064] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2018-11-07 12:05:13.435] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":10,"type":0,"compressRoute":1,"route":"main.guaJiHandler.checkExp","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 12:05:13.746] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 10, route: main.guaJiHandler.checkExp, msg: {"code":1}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-11-07 12:05:19.085] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\connectors\commands\heartbeat.js] [39mclient 1 heartbeat timeout.
+[2018-11-07 12:05:19.085] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2018-11-07 12:05:36.406] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] getSession session is created with session id: 2
+[2018-11-07 12:05:44.356] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 2, msg: {"id":14,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
+[2018-11-07 12:05:44.364] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 14, route: main.guaJiHandler.view, msg: {"code":1,"info":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439","start_time":1541563513670,"stage_id":1,"chapter_id":1}}, receivers: [2], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2018-11-07 12:05:48.715] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 2

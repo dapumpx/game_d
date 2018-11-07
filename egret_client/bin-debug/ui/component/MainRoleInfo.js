@@ -23,7 +23,7 @@ var MainRoleInfo = (function (_super) {
             { text: "Click 2", style: { underline: true } }
         ];
         this.btnLink0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn1ClickHandler, this);
-        // this.btnLink1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn2ClickHandler, this);
+        this.btnLink1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onBtn2ClickHandler, this);
         this.gameTimer = new GameTimer();
         this.gameTimer.x = 50;
         this.gameTimer.y = 200;
@@ -34,6 +34,13 @@ var MainRoleInfo = (function (_super) {
         // 	//消息回调
         // 	console.log("request", result);
         // });
+        var req = {};
+        req['user_id'] = UserDataModel.uid;
+        PomeloService.INS.pomelo.request("main.guaJiHandler.checkExp", req, function (result) {
+            //消息回调
+            console.log("request", result);
+            // this.gameTimer.setStartTime(result.info.start_time);
+        }, this);
     };
     MainRoleInfo.prototype.onBtn1ClickHandler = function (e) {
         // var req = {};
