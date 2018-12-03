@@ -36,7 +36,6 @@ app.configure('production|development', function () {
 		var areaIdMap = {};
 		for (var id in areas) {
 			areaIdMap[areas[id].area] = areas[id].id;
-			console.log("--------" + areas[id].id + "---------" + areas[id].area)
 		}
 		app.set('areaIdMap', areaIdMap);
 	}
@@ -89,10 +88,14 @@ app.configure('production|development', 'area', function () {
 		console.log("area instance is init...")
 		instancePool.init(require('./config/instance.json'));
 		app.areaManager = instancePool;
+		console.dir(11)
+		console.dir(app.areaManager)
 	} else {
 		console.log("area not instance is init...")
 		scene.init(dataApi.area.findById(server.area));
 		app.areaManager = scene;
+		console.dir(22)
+		console.dir(app.areaManager)
 		/*
 		 kill -SIGUSR2 <pid>
 		 http://localhost:3272/inspector.html?host=localhost:9999&page=0
