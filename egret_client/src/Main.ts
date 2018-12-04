@@ -80,8 +80,7 @@ class Main extends egret.DisplayObjectContainer {
             await this.loadTheme();
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }
@@ -105,6 +104,12 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
+        //Add black background
+        let stageBackground: egret.Shape = new egret.Shape();
+        stageBackground.graphics.beginFill(0x3e4e59);
+        stageBackground.graphics.drawRect(0, 0, this.stage.stageWidth, this.stage.stageHeight);
+        this.addChild(stageBackground);
+
         ManagerLibrary.init();
         ManagerLibrary.layerMgr.init(this);
         TimerManager.init();
@@ -192,9 +197,9 @@ class Main extends egret.DisplayObjectContainer {
         // });
     }
 
-    private stateText:egret.TextField;
-    private text:string = "TestWebSocket";
-    private initStateText():void {
+    private stateText: egret.TextField;
+    private text: string = "TestWebSocket";
+    private initStateText(): void {
         this.stateText = new egret.TextField();
         this.stateText.size = 22;
         this.stateText.text = this.text;
@@ -234,9 +239,13 @@ class Main extends egret.DisplayObjectContainer {
             // Switch to described content
             textfield.textFlow = textFlow;
             let tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
+            tw.to({
+                "alpha": 1
+            }, 200);
             tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
+            tw.to({
+                "alpha": 0
+            }, 200);
             tw.call(change, this);
         };
 

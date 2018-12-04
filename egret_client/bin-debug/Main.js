@@ -168,6 +168,11 @@ var Main = (function (_super) {
      * Create a game scene
      */
     Main.prototype.createGameScene = function () {
+        //Add black background
+        var stageBackground = new egret.Shape();
+        stageBackground.graphics.beginFill(0x3e4e59);
+        stageBackground.graphics.drawRect(0, 0, this.stage.stageWidth, this.stage.stageHeight);
+        this.addChild(stageBackground);
         ManagerLibrary.init();
         ManagerLibrary.layerMgr.init(this);
         TimerManager.init();
@@ -276,9 +281,13 @@ var Main = (function (_super) {
             // Switch to described content
             textfield.textFlow = textFlow;
             var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
+            tw.to({
+                "alpha": 1
+            }, 200);
             tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
+            tw.to({
+                "alpha": 0
+            }, 200);
             tw.call(change, _this);
         };
         change();
