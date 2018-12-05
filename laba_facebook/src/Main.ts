@@ -143,9 +143,34 @@ class Main extends egret.DisplayObjectContainer {
         textfield.y = 135;
         this.textfield = textfield;
 
+        let buttonSkin =
+            `<e:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
+                <e:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
+                         source="resource/button_up.png"
+                         source.down="resource/button_down.png"/>
+                <e:Label id="labelDisplay" top="8" bottom="8" left="8" right="8"
+                         textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+                <e:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>
+            </e:Skin>`;
+        let btnTest = new eui.Button();
+        btnTest.skinName = buttonSkin;
+        btnTest.label = "Test";
+        btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, this.testLaba, this);
+        this.addChild(btnTest);
+
+        PomeloService.INS;
         // this.getEgretConnectedPlayersAsync();
     }
 
+    private testLaba(e:egret.TouchEvent)
+    {
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", null, function (result) {
+			//消息回调
+			console.log("request", result);	
+
+			// this.gameTimer.setStartTime(result.info.start_time);
+        }, this);
+    }
     // private async getEgretConnectedPlayersAsync() {
     //     egret.log("frends info:::");
     //     let datas: FBInstant.ConnectedPlayer[] = await FBInstant.player.getConnectedPlayersAsync();

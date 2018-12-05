@@ -193,7 +193,21 @@ var Main = (function (_super) {
         textfield.x = 172;
         textfield.y = 135;
         this.textfield = textfield;
+        var buttonSkin = "<e:Skin class=\"skins.ButtonSkin\" states=\"up,down,disabled\" minHeight=\"50\" minWidth=\"100\" xmlns:e=\"http://ns.egret.com/eui\">\n                <e:Image width=\"100%\" height=\"100%\" scale9Grid=\"1,3,8,8\" alpha.disabled=\"0.5\"\n                         source=\"resource/button_up.png\"\n                         source.down=\"resource/button_down.png\"/>\n                <e:Label id=\"labelDisplay\" top=\"8\" bottom=\"8\" left=\"8\" right=\"8\"\n                         textColor=\"0xFFFFFF\" verticalAlign=\"middle\" textAlign=\"center\"/>\n                <e:Image id=\"iconDisplay\" horizontalCenter=\"0\" verticalCenter=\"0\"/>\n            </e:Skin>";
+        var btnTest = new eui.Button();
+        btnTest.skinName = buttonSkin;
+        btnTest.label = "Test";
+        btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, this.testLaba, this);
+        this.addChild(btnTest);
+        PomeloService.INS;
         // this.getEgretConnectedPlayersAsync();
+    };
+    Main.prototype.testLaba = function (e) {
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", null, function (result) {
+            //消息回调
+            console.log("request", result);
+            // this.gameTimer.setStartTime(result.info.start_time);
+        }, this);
     };
     // private async getEgretConnectedPlayersAsync() {
     //     egret.log("frends info:::");

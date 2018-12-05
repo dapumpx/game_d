@@ -1,0 +1,11 @@
+[2018-12-06 00:21:50.997] [ERROR] pomelo-rpc - [31m[mqtt-acceptor] [39mprocess rpc message error TypeError: dataApi.ceil.forEach is not a function
+    at Object.labaDao.once (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/app/dao/labaDao.js:6:18)
+    at Handler.la (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/app/servers/laba/handler/mainHandler.js:15:29)
+    at Service.handle (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/common/service/handlerService.js:59:20)
+    at handle (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/server/server.js:375:25)
+    at next (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/common/service/filterService.js:50:7)
+    at Service.beforeFilter (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/common/service/filterService.js:65:3)
+    at beforeFilter (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/server/server.js:242:8)
+    at doHandle (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/server/server.js:388:3)
+    at Server.pro.handle (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/server/server.js:125:3)
+    at Component.pro.handle (/Users/xuzhihao/Documents/GitHub/game_d/pomelo_server/game-server/node_modules/pomelo/lib/components/server.js:67:14)

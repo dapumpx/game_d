@@ -28,6 +28,9 @@
       "name": "assetsmanager"
     },
     {
+			"name": "socket"
+		},
+    {
       "name": "egret-facebook"
     },
     {
