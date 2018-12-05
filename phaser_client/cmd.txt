@@ -1,0 +1,13 @@
+openssl genrsa -des3 -out f:/work/server.key 2048
+
+openssl req -new -key d:/server.key -out d:/server.csr -config "C:\Program Files\Git\mingw64\ssl\openssl.cnf"
+
+openssl req -new -x509 -key d:/server.key -out d:/ca.crt -days 3650 -config "C:\Program Files\Git\mingw64\ssl\openssl.cnf"
+
+openssl x509 -req -days 3650 -in d:/server.csr -CA d:/ca.crt -CAkey server.key -CAcreateserial -out d:/server.crt
+
+openssl enc -d -aes-256-cbc -md md5 -in encrypted -out decrpted
+
+openssl req -x509 -newkey rsa:2048 -keyout d:/keytmp.pem -out d:/cert.pem -days 365 -config "C:\Program Files\Git\mingw64\ssl\openssl.cnf"
+
+openssl rsa -in d:/keytmp.pem -out d:/key.pem

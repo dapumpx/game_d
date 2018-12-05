@@ -143,19 +143,19 @@ class Main extends egret.DisplayObjectContainer {
         textfield.y = 135;
         this.textfield = textfield;
 
-        this.getEgretConnectedPlayersAsync();
+        // this.getEgretConnectedPlayersAsync();
     }
 
-    private async getEgretConnectedPlayersAsync() {
-        egret.log("frends info:::");
-        let datas: FBInstant.ConnectedPlayer[] = await FBInstant.player.getConnectedPlayersAsync();
-        egret.log(datas);
-        datas.forEach(element => {
-            egret.log("player.getID", element.getID());
-            egret.log("player.getName", element.getName());
-            egret.log("player.getPhoto", element.getPhoto());
-        });
-    }
+    // private async getEgretConnectedPlayersAsync() {
+    //     egret.log("frends info:::");
+    //     let datas: FBInstant.ConnectedPlayer[] = await FBInstant.player.getConnectedPlayersAsync();
+    //     egret.log(datas);
+    //     datas.forEach(element => {
+    //         egret.log("player.getID", element.getID());
+    //         egret.log("player.getName", element.getName());
+    //         egret.log("player.getPhoto", element.getPhoto());
+    //     });
+    // }
 
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

@@ -1781,3 +1781,15 @@
 [2018-11-07 12:05:44.356] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] handleMessage session id: 2, msg: {"id":14,"type":0,"compressRoute":1,"route":"main.guaJiHandler.view","body":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439"},"compressGzip":0}
 [2018-11-07 12:05:44.364] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\components\connector.js] [39m[connector-server-1] send message reqId: 14, route: main.guaJiHandler.view, msg: {"code":1,"info":{"user_id":"763b7e9f-02f1-43bc-a6f6-bf0730fcd439","start_time":1541563513670,"stage_id":1,"chapter_id":1}}, receivers: [2], opts: {"type":"response","userOptions":{},"isResponse":true}
 [2018-11-07 12:05:48.715] [DEBUG] pomelo - [36m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\common\service\sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
+[2018-12-05 16:42:11.197] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-12-05 16:42:14.804] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-12-05 16:42:14.807] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-12-05 16:42:14.808] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 615 ms
+[2018-12-05 16:42:50.792] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-12-05 16:42:52.421] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-12-05 16:42:52.424] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-12-05 16:42:52.424] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 607 ms
+[2018-12-05 17:01:38.878] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39mapplication inited: "connector-server-1"
+[2018-12-05 17:01:39.979] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" enter after start...
+[2018-12-05 17:01:39.983] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" finish start
+[2018-12-05 17:01:39.983] [INFO] pomelo - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\application.js] [39m"connector-server-1" startup in 439 ms

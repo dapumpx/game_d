@@ -1,5 +1,6 @@
 var pomelo = require('pomelo');
 var routeUtil = require('./app/util/routeUtil');
+var dataApi = require('./app/util/dataApi');
 /**
  * Init app for client.
  */

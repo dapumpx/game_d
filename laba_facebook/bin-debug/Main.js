@@ -193,29 +193,18 @@ var Main = (function (_super) {
         textfield.x = 172;
         textfield.y = 135;
         this.textfield = textfield;
-        this.getEgretConnectedPlayersAsync();
+        // this.getEgretConnectedPlayersAsync();
     };
-    Main.prototype.getEgretConnectedPlayersAsync = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var datas;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        egret.log("frends info:::");
-                        return [4 /*yield*/, FBInstant.player.getConnectedPlayersAsync()];
-                    case 1:
-                        datas = _a.sent();
-                        egret.log(datas);
-                        datas.forEach(function (element) {
-                            egret.log("player.getID", element.getID());
-                            egret.log("player.getName", element.getName());
-                            egret.log("player.getPhoto", element.getPhoto());
-                        });
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
+    // private async getEgretConnectedPlayersAsync() {
+    //     egret.log("frends info:::");
+    //     let datas: FBInstant.ConnectedPlayer[] = await FBInstant.player.getConnectedPlayersAsync();
+    //     egret.log(datas);
+    //     datas.forEach(element => {
+    //         egret.log("player.getID", element.getID());
+    //         egret.log("player.getName", element.getName());
+    //         egret.log("player.getPhoto", element.getPhoto());
+    //     });
+    // }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
@@ -256,3 +245,4 @@ var Main = (function (_super) {
     return Main;
 }(egret.DisplayObjectContainer));
 __reflect(Main.prototype, "Main");
+//# sourceMappingURL=Main.js.map
