@@ -203,7 +203,7 @@ var Main = (function (_super) {
         // this.getEgretConnectedPlayersAsync();
     };
     Main.prototype.testLaba = function (e) {
-        PomeloService.INS.pomelo.request("laba.mainHandler.la", null, function (result) {
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", { userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e' }, function (result) {
             //消息回调
             console.log("request", result);
             // this.gameTimer.setStartTime(result.info.start_time);

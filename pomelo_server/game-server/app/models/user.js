@@ -23,6 +23,20 @@ module.exports = function(sequelize, DataTypes) {
     exp: {
       type: DataTypes.INTEGER(11),
       allowNull: true
+    },
+    gold: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      defaultValue: '0'
+    },
+    free_times: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      defaultValue: '0'
+    },
+    last_laba: {
+      type: DataTypes.STRING(45),
+      allowNull: true
     }
   }, {
     tableName: 'user',

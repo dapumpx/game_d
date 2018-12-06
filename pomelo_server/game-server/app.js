@@ -31,7 +31,7 @@ app.configure('production|development', 'connector', function(){
 });
 
 // Configure database
-app.configure('production|development', 'main|connector', function () {
+app.configure('production|development', 'main|connector|laba', function () {
   app.loadConfig('mysql', app.getBase() + '/config/mysql.json');
 	var dbclient = require('./app/dao/mysql/mysql').init(app);
   app.set('dbclient', dbclient);
