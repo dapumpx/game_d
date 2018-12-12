@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainViewSkin" width="1080" height="1920" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="167a2d0b8c1" ></w:Config>
+	<e:Rect id="moveArea" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xF25652" left="0" right="0" top="0" height="50"/>
+	<e:Label id="titleDisplay" text="Hello" y="0" anchorOffsetY="0" height="50" size="40" textAlign="center" verticalAlign="middle" left="0" right="0" textColor="0xf1f0e2"/>
+	<e:Label text="Color1" x="32" y="72" anchorOffsetX="0" width="218" textColor="0xc2e7f2"/>
+	<e:Label text="Color2" x="32" y="120" anchorOffsetX="0" width="218" textColor="0xf1f0e2"/>
+	<e:Label text="Color3" x="32" y="167" anchorOffsetX="0" width="218" textColor="0xd9bb93"/>
+	<e:Label text="Color4" x="32" y="210" anchorOffsetX="0" width="218" textColor="0xF25652"/>
+</e:Skin>

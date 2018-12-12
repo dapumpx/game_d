@@ -93,6 +93,10 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
+        let main:MainView = new MainView();
+        this.addChild(main);
+        return;
+        /*
         let sky = this.createBitmapByName("bg_jpg");
         this.addChild(sky);
         let stageW = this.stage.stageWidth;
@@ -160,6 +164,7 @@ class Main extends egret.DisplayObjectContainer {
 
         PomeloService.INS;
         // this.getEgretConnectedPlayersAsync();
+        */
     }
 
     private testLaba(e:egret.TouchEvent)

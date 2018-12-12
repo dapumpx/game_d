@@ -150,23 +150,30 @@ var Main = (function (_super) {
      * Create a game scene
      */
     Main.prototype.createGameScene = function () {
-        var sky = this.createBitmapByName("bg_jpg");
+        var main = new MainView();
+        this.addChild(main);
+        return;
+        /*
+        let sky = this.createBitmapByName("bg_jpg");
         this.addChild(sky);
-        var stageW = this.stage.stageWidth;
-        var stageH = this.stage.stageHeight;
+        let stageW = this.stage.stageWidth;
+        let stageH = this.stage.stageHeight;
         sky.width = stageW;
         sky.height = stageH;
-        var topMask = new egret.Shape();
+
+        let topMask = new egret.Shape();
         topMask.graphics.beginFill(0x000000, 0.5);
         topMask.graphics.drawRect(0, 0, stageW, 172);
         topMask.graphics.endFill();
         topMask.y = 33;
         this.addChild(topMask);
-        var icon = this.createBitmapByName("egret_icon_png");
+
+        let icon = this.createBitmapByName("egret_icon_png");
         this.addChild(icon);
         icon.x = 26;
         icon.y = 33;
-        var line = new egret.Shape();
+
+        let line = new egret.Shape();
         line.graphics.lineStyle(2, 0xffffff);
         line.graphics.moveTo(0, 0);
         line.graphics.lineTo(0, 117);
@@ -174,7 +181,9 @@ var Main = (function (_super) {
         line.x = 172;
         line.y = 61;
         this.addChild(line);
-        var colorLabel = new egret.TextField();
+
+
+        let colorLabel = new egret.TextField();
         colorLabel.textColor = 0xffffff;
         colorLabel.width = stageW - 172;
         colorLabel.textAlign = "center";
@@ -183,7 +192,8 @@ var Main = (function (_super) {
         colorLabel.x = 172;
         colorLabel.y = 80;
         this.addChild(colorLabel);
-        var textfield = new egret.TextField();
+
+        let textfield = new egret.TextField();
         this.addChild(textfield);
         textfield.alpha = 0;
         textfield.width = stageW - 172;
@@ -193,14 +203,25 @@ var Main = (function (_super) {
         textfield.x = 172;
         textfield.y = 135;
         this.textfield = textfield;
-        var buttonSkin = "<e:Skin class=\"skins.ButtonSkin\" states=\"up,down,disabled\" minHeight=\"50\" minWidth=\"100\" xmlns:e=\"http://ns.egret.com/eui\">\n                <e:Image width=\"100%\" height=\"100%\" scale9Grid=\"1,3,8,8\" alpha.disabled=\"0.5\"\n                         source=\"resource/button_up.png\"\n                         source.down=\"resource/button_down.png\"/>\n                <e:Label id=\"labelDisplay\" top=\"8\" bottom=\"8\" left=\"8\" right=\"8\"\n                         textColor=\"0xFFFFFF\" verticalAlign=\"middle\" textAlign=\"center\"/>\n                <e:Image id=\"iconDisplay\" horizontalCenter=\"0\" verticalCenter=\"0\"/>\n            </e:Skin>";
-        var btnTest = new eui.Button();
+
+        let buttonSkin =
+            `<e:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
+                <e:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
+                         source="resource/button_up.png"
+                         source.down="resource/button_down.png"/>
+                <e:Label id="labelDisplay" top="8" bottom="8" left="8" right="8"
+                         textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+                <e:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>
+            </e:Skin>`;
+        let btnTest = new eui.Button();
         btnTest.skinName = buttonSkin;
         btnTest.label = "Test";
         btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, this.testLaba, this);
         this.addChild(btnTest);
+
         PomeloService.INS;
         // this.getEgretConnectedPlayersAsync();
+        */
     };
     Main.prototype.testLaba = function (e) {
         PomeloService.INS.pomelo.request("laba.mainHandler.la", { userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e' }, function (result) {
