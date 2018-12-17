@@ -10,15 +10,12 @@ var Handler = function (app) {
 };
 
 Handler.prototype.la = function (msg, session, next) {
-    userDao.laOnce(msg.userId,function(error, user){
-        if(error)
-        {
+    userDao.laOnce(msg.userId, function (error, user) {
+        if (error) {
             next(null, {
                 code: error
             });
-        }
-        else
-        {
+        } else {
             let result = [];
             for (let i = 0; i < 15; i++) {
                 result.push(labaDao.once());
@@ -26,20 +23,22 @@ Handler.prototype.la = function (msg, session, next) {
 
             next(null, {
                 code: 1,
-                info: result
+                info: result,
+                user: user
             });
         }
     });
-    
+
 }
 
 Handler.prototype.addGold = function (msg, session, next) {
     userDao.addGold(msg.userId, msg.gold, function (err, result) {
         if (err) {
 
-        } else if (result == 1) {
+        } else {
             next(null, {
-                code: 1
+                code: 1,
+                user: result
             });
         }
     });

@@ -21,17 +21,14 @@ userDao.addExp = function (userId, totalExp, cb) {
 }
 
 userDao.addGold = function (userId, gold, cb) {
-    UserC.update({
-        gold: gold
-    }, {
+    UserC.findOne({
         where: {
             id: userId
         }
-    }).then(g => {
-        if (g) {
-            cb(null);
-        }
-    });
+    }).then(user => {
+        user.gold += gold;
+        user.save().then(() => cb(null, user));
+    })
 }
 
 userDao.laOnce = function (userId, cb) {
@@ -40,16 +37,13 @@ userDao.laOnce = function (userId, cb) {
             id: userId
         }
     }).then(user => {
-        if(user.gold >= 10)
-        {
+        if (user.gold >= 10) {
             user.gold -= 10;
-            user.save().then(()=>{
+            user.save().then(() => {
                 cb(null, user);
             })
-        }
-        else
-        {
-            cb(500,  null);
+        } else {
+            cb(500, null);
         }
     })
 }
