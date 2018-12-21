@@ -1,5 +1,11 @@
 var express = require('express');
 var app = express.createServer();
+var https = require('https');
+var fs = require('fs');
+
+var privateKey = fs.readFileSync('sslcert/key.pem', 'utf8');
+var certificate = fs.readFileSync('sslcert/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 
 app.configure(function(){
   app.use(express.methodOverride());
@@ -25,3 +31,4 @@ app.configure('production', function(){
 console.log("Web server has started.\nPlease log on http://127.0.0.1:3001/index.html");
 
 app.listen(3001);
+https.createServer(credentials, app).listen(8080);

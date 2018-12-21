@@ -11,3 +11,7 @@
 [2018-11-06 12:27:35.826] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[main],[main-server-1],[1541478455826],[disconnect]
 [2018-11-06 12:28:32.388] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[master],[master-server-1],[1541478512388],[disconnect]
 [2018-11-06 12:28:35.946] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[connector],[connector-server-1],[1541478515946],[disconnect]
+[2018-12-19 18:58:42.190] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[gate],[gate-server-1],[1545217122190],[disconnect]
+[2018-12-19 18:58:42.248] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[laba],[laba-server-1],[1545217122248],[disconnect]
+[2018-12-19 18:58:42.262] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[main],[main-server-1],[1545217122262],[disconnect]
+[2018-12-19 18:58:42.271] [INFO] crash-log - [32m[D:\game_d\game_d\pomelo_server\game-server\node_modules\pomelo\lib\master\master.js] [39m[connector],[connector-server-1],[1545217122270],[disconnect]

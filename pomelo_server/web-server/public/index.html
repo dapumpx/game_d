@@ -12,11 +12,13 @@
     <meta name="version" content="1.0" />
     <meta name="keywords" content="pomelo" />
     <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <script src="https://www.facebook.com/assets.php/en_US/fbinstant.6.1.js"></script>
     <script src="js/lib/build/build.js" type="text/javascript"></script>
     <script type="text/javascript">
       require('boot');
     </script> 
     <script type="text/javascript">
+      console.log(3333333123123)
       var pomelo = window.pomelo;
       var host = "127.0.0.1";
       var port = "3010";
@@ -28,7 +30,7 @@
           log: true
         }, function() {
         pomelo.request("connector.entryHandler.entry", "hello pomelo", function(data) {
-            alert(data.msg);
+            console.info(data.msg);
             updateTableInfo();
           });
         });

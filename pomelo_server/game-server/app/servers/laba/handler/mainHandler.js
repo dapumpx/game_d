@@ -16,10 +16,7 @@ Handler.prototype.la = function (msg, session, next) {
                 code: error
             });
         } else {
-            let result = [];
-            for (let i = 0; i < 15; i++) {
-                result.push(labaDao.once());
-            }
+            let result = labaDao.once();
 
             next(null, {
                 code: 1,
