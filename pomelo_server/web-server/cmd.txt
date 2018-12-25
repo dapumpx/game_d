@@ -1,1 +1,7 @@
 D:\game_d\game_d\pomelo_server\web-server>http-server --ssl -c-1 -p 8080 -a 127.0.0.1
+
+https://www.facebook.com/embed/instantgames/2346162378791863/player?game_url=https://localhost:8080
+
+https://developers.facebook.com/docs/games/instant-games/guides/ads-monetization
+
+2346162378791863_2388801324527968
