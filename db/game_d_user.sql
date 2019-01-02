@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: game_d
+-- Host: localhost    Database: game_d
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -23,9 +23,17 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
+  `id` varchar(36) NOT NULL,
+  `user_name` varchar(128) DEFAULT NULL,
   `name` varchar(128) NOT NULL,
   `password` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`name`)
+  `exp` int(11) DEFAULT NULL,
+  `gold` int(11) DEFAULT '0',
+  `free_times` int(11) DEFAULT '0',
+  `last_laba` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `user_name_UNIQUE` (`user_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,7 +43,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('001','001');
+INSERT INTO `user` VALUES ('1','1','123','1',NULL,0,0,NULL),('763b7e9f-02f1-43bc-a6f6-bf0730fcd439','严立夤','random','严立夤',41404,0,0,NULL),('a7e35206-2c3e-4b7a-bafb-33e39b79a68e','许志豪','random','许志豪',NULL,178750,0,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-31 17:15:38
+-- Dump completed on 2019-01-02 11:16:33
