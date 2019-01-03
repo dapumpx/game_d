@@ -1,6 +1,8 @@
 class MainView extends eui.Component implements  eui.UIComponent {
 	public constructor() {
 		super();
+
+		this.skinName = "resource/eui_exml/MainView.exml";
 	}
 
 	protected partAdded(partName:string,instance:any):void
@@ -12,6 +14,8 @@ class MainView extends eui.Component implements  eui.UIComponent {
 	protected childrenCreated():void
 	{
 		super.childrenCreated();
+
+		
 	}
 	
 }

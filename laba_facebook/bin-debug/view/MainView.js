@@ -11,7 +11,9 @@ r.prototype = e.prototype, t.prototype = new r();
 var MainView = (function (_super) {
     __extends(MainView, _super);
     function MainView() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.skinName = "resource/eui_exml/MainView.exml";
+        return _this;
     }
     MainView.prototype.partAdded = function (partName, instance) {
         _super.prototype.partAdded.call(this, partName, instance);

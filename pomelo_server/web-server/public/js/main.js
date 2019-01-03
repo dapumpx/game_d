@@ -62,6 +62,35 @@ window.onload = function () {
                 console.log(123123)
             });
         FBInstant.setLoadingProgress(100);
+
+        preloadAd();
     })
 
+}
+
+var preloadedInterstitial = null;
+function preloadAd() {
+    FBInstant.getRewardedVideoAsync('2346162378791863_2405761049498662')
+    //FBInstant.getInterstitialAdAsync('2346162378791863_2405751536166280') // Your Ad Placement Id
+    .then(function (interstitial) {
+        // Load the Ad asynchronously
+        preloadedInterstitial = interstitial;
+        return preloadedInterstitial.loadAsync();
+    }).then(function () {
+        console.log('Interstitial preloaded')
+        showAd()
+    }).catch(function (err) {
+        console.error('Interstitial failed to preload: ' + err.message);
+    });
+}
+
+function showAd() {
+    preloadedInterstitial.showAsync()
+        .then(function () {
+            // Perform post-ad success operation
+            console.log('Interstitial ad finished successfully');
+        })
+        .catch(function (e) {
+            console.error(e.message);
+        });
 }

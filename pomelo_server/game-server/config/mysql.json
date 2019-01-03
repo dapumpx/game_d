@@ -4,7 +4,7 @@
 		"port" : "3306",
 		"database" : "game_d",
 		"user" : "root",
-		"password" : "root"
+		"password" : "yly08150425"
 	},
 
 	"production": {
@@ -12,6 +12,6 @@
 		"port" : "3306",
 		"database" : "game_d",
 		"user" : "root",
-		"password" : "root"
+		"password" : "yly08150425"
 	}
 }
