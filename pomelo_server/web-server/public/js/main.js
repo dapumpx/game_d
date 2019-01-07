@@ -94,3 +94,4 @@ function showAd() {
             console.error(e.message);
         });
 }
+

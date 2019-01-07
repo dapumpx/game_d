@@ -71,6 +71,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+//http-server --ssl -c-1 -p 8080 -a 127.0.0.1 --cert ./sslcert/cert.pem --key ./sslcert/key.pem
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
@@ -79,6 +80,16 @@ var Main = (function (_super) {
         return _this;
     }
     Main.prototype.onAddToStage = function (event) {
+        console.log("initializeAsync");
+        this.initializeAsync();
+        FBInstant.startGameAsync().then(function () {
+            egret.log("start game");
+            // Main._that = this;
+            // Context.init(this.stage);
+            // Main.menu = new Menu("Egret Facebook SDK Demo")
+            // this.addChild(Main.menu);
+            // this.createMenu();
+        });
         egret.lifecycle.addLifecycleListener(function (context) {
             // custom lifecycle plugin
             context.onUpdate = function () {
@@ -103,12 +114,15 @@ var Main = (function (_super) {
                     case 1:
                         _a.sent();
                         this.createGameScene();
-                        return [4 /*yield*/, RES.getResAsync("description_json")];
+                        return [4 /*yield*/, RES.getResAsync("description_json")
+                            // this.startAnimation(result);
+                        ];
                     case 2:
                         result = _a.sent();
-                        this.startAnimation(result);
+                        // this.startAnimation(result);
                         return [4 /*yield*/, platform.login()];
                     case 3:
+                        // this.startAnimation(result);
                         _a.sent();
                         return [4 /*yield*/, platform.getUserInfo()];
                     case 4:
@@ -125,7 +139,7 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
+                        _a.trys.push([0, 4, , 5]);
                         loadingView = new LoadingUI();
                         this.stage.addChild(loadingView);
                         return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
@@ -134,16 +148,32 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
                     case 2:
                         _a.sent();
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 4];
+                        return [4 /*yield*/, RES.loadGroup("laba_1", 0)];
                     case 3:
+                        _a.sent();
+                        this.stage.removeChild(loadingView);
+                        return [3 /*break*/, 5];
+                    case 4:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });
+    };
+    Main.prototype.initializeAsync = function () {
+        console.log("fb initializeAsync");
+        FBInstant.initializeAsync().then(function () {
+            egret.log("getLocale:", FBInstant.getLocale());
+            egret.log("getPlatform:", FBInstant.getPlatform());
+            egret.log("getSDKVersion", FBInstant.getSDKVersion());
+            egret.log("getSupportedAPIs", FBInstant.getSupportedAPIs());
+            egret.log("getEntryPointData", FBInstant.getEntryPointData());
+        });
+        setTimeout(function () {
+            FBInstant.setLoadingProgress(100);
+        }, 1000);
     };
     /**
      * 创建游戏场景
@@ -280,4 +310,3 @@ var Main = (function (_super) {
     return Main;
 }(egret.DisplayObjectContainer));
 __reflect(Main.prototype, "Main");
-//# sourceMappingURL=Main.js.map

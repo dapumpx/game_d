@@ -1,4 +1,4 @@
-import {Header} from "./class/ui/Header";
+import Header from "./class/ui/Header.js";
 
 var config = {
     type: Phaser.AUTO,
@@ -26,7 +26,9 @@ var app;
 
 function preload() {
     this.load.image('abc', './image/sp.png');
-
+    let a = new Header(this);
+    console.log(this);
+    console.log(game);
     return;
     this.load.setBaseURL('http://labs.phaser.io');
 
@@ -59,5 +61,5 @@ function create() {
 
     emitter.startFollow(logo);
 
-    let h = new Header(game)
+    //let h = new Header(game)
 }

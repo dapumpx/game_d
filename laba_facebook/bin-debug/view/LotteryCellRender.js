@@ -10,16 +10,29 @@ r.prototype = e.prototype, t.prototype = new r();
 };
 var LotteryCellRender = (function (_super) {
     __extends(LotteryCellRender, _super);
-    function LotteryCellRender() {
-        return _super.call(this) || this;
+    function LotteryCellRender(row, col) {
+        var _this = _super.call(this) || this;
+        _this.row = row;
+        _this.col = col;
+        return _this;
     }
     LotteryCellRender.prototype.partAdded = function (partName, instance) {
         _super.prototype.partAdded.call(this, partName, instance);
     };
     LotteryCellRender.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
+        var tt = RES.getRes((Math.floor(Math.random() * 100) + 1).toString() + "_head_png");
+        var img = new egret.Bitmap(tt);
+        this.addChild(img);
+        this.startRoll();
+    };
+    LotteryCellRender.prototype.startRoll = function () {
+        egret.Tween.get(this).to({ y: this.y + 300 }, 300).call(this.resetPos, this);
+    };
+    LotteryCellRender.prototype.resetPos = function () {
+        this.y -= 300;
+        this.startRoll();
     };
     return LotteryCellRender;
 }(eui.Component));
 __reflect(LotteryCellRender.prototype, "LotteryCellRender", ["eui.UIComponent", "egret.DisplayObject"]);
-//# sourceMappingURL=LotteryCellRender.js.map

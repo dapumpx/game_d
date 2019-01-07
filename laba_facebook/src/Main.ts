@@ -27,6 +27,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
+//http-server --ssl -c-1 -p 8080 -a 127.0.0.1 --cert ./sslcert/cert.pem --key ./sslcert/key.pem
+
 class Main extends egret.DisplayObjectContainer {
 
 
@@ -37,6 +39,18 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private onAddToStage(event: egret.Event) {
+        console.log("initializeAsync");
+
+        this.initializeAsync();
+
+        FBInstant.startGameAsync().then(() => {
+            egret.log("start game");
+            // Main._that = this;
+            // Context.init(this.stage);
+            // Main.menu = new Menu("Egret Facebook SDK Demo")
+            // this.addChild(Main.menu);
+            // this.createMenu();
+        });
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
@@ -58,7 +72,7 @@ class Main extends egret.DisplayObjectContainer {
             console.log(e);
         })
 
-
+         
 
     }
 
@@ -66,11 +80,10 @@ class Main extends egret.DisplayObjectContainer {
         await this.loadResource()
         this.createGameScene();
         const result = await RES.getResAsync("description_json")
-        this.startAnimation(result);
+        // this.startAnimation(result);
         await platform.login();
         const userInfo = await platform.getUserInfo();
         console.log(userInfo);
-
     }
 
     private async loadResource() {
@@ -79,11 +92,27 @@ class Main extends egret.DisplayObjectContainer {
             this.stage.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
+            await RES.loadGroup("laba_1", 0);
             this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);
         }
+    }
+
+    private initializeAsync(): void {
+        console.log("fb initializeAsync");
+
+        FBInstant.initializeAsync().then(function () {
+            egret.log("getLocale:", FBInstant.getLocale());
+            egret.log("getPlatform:", FBInstant.getPlatform());
+            egret.log("getSDKVersion", FBInstant.getSDKVersion());
+            egret.log("getSupportedAPIs", FBInstant.getSupportedAPIs());
+            egret.log("getEntryPointData", FBInstant.getEntryPointData());
+        })
+        setTimeout(function () {
+            FBInstant.setLoadingProgress(100);
+        }, 1000);
     }
 
     private textfield: egret.TextField;

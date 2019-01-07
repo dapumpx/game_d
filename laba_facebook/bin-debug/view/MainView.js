@@ -20,8 +20,27 @@ var MainView = (function (_super) {
     };
     MainView.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
+        var box = new egret.Sprite();
+        box.y = 300;
+        box.x = 100;
+        this.addChild(box);
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 5; j++) {
+                var cell = new LotteryCellRender();
+                cell.x = j * 100;
+                cell.y = i * -100 + 200;
+                box.addChild(cell);
+            }
+        }
+        var m = new egret.Shape();
+        m.graphics.beginFill(0, 1);
+        m.graphics.drawRect(0, 0, 500, 300);
+        m.graphics.endFill();
+        m.x = 100;
+        m.y = 300;
+        box.mask = m;
+        this.addChild(m);
     };
     return MainView;
 }(eui.Component));
 __reflect(MainView.prototype, "MainView", ["eui.UIComponent", "egret.DisplayObject"]);
-//# sourceMappingURL=MainView.js.map

@@ -5,3 +5,6 @@ https://www.facebook.com/embed/instantgames/2346162378791863/player?game_url=htt
 https://developers.facebook.com/docs/games/instant-games/guides/ads-monetization
 
 2346162378791863_2388801324527968
+
+
+http-server --ssl -c-1 -p 8080 -a 127.0.0.1 --cert ./sslcert/cert.pem --key ./sslcert/key.pem
