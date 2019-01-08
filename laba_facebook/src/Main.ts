@@ -39,7 +39,9 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private onAddToStage(event: egret.Event) {
-        console.log("initializeAsync");
+        var assetAdapter = new AssetAdapter();
+        this.stage.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        this.stage.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
         this.initializeAsync();
 
@@ -68,16 +70,21 @@ class Main extends egret.DisplayObjectContainer {
             egret.ticker.resume();
         }
 
-        this.runGame().catch(e => {
-            console.log(e);
-        })
+        // this.runGame().catch(e => {
+        //     console.log(e);
+        // })
 
-         
+        this.loadDefaultTheme();
 
     }
 
-    private async runGame() {
+    private async loadDefaultTheme() {
         await this.loadResource()
+        var theme = new eui.Theme("resource/default.thm.json", this.stage);
+        theme.addEventListener(eui.UIEvent.COMPLETE, this.runGame, this);
+    }
+
+    private async runGame() {
         this.createGameScene();
         const result = await RES.getResAsync("description_json")
         // this.startAnimation(result);
@@ -94,8 +101,7 @@ class Main extends egret.DisplayObjectContainer {
             await RES.loadGroup("preload", 0, loadingView);
             await RES.loadGroup("laba_1", 0);
             this.stage.removeChild(loadingView);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }
@@ -122,7 +128,7 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
-        let main:MainView = new MainView();
+        let main: MainView = new MainView();
         this.addChild(main);
         return;
         /*
@@ -196,13 +202,14 @@ class Main extends egret.DisplayObjectContainer {
         */
     }
 
-    private testLaba(e:egret.TouchEvent)
-    {
-        PomeloService.INS.pomelo.request("laba.mainHandler.la", {userId:'a7e35206-2c3e-4b7a-bafb-33e39b79a68e'}, function (result) {
-			//消息回调
-			console.log("request", result);	
+    private testLaba(e: egret.TouchEvent) {
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", {
+            userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e'
+        }, function (result) {
+            //消息回调
+            console.log("request", result);
 
-			// this.gameTimer.setStartTime(result.info.start_time);
+            // this.gameTimer.setStartTime(result.info.start_time);
         }, this);
     }
     // private async getEgretConnectedPlayersAsync() {
@@ -248,9 +255,13 @@ class Main extends egret.DisplayObjectContainer {
             // Switch to described content
             textfield.textFlow = textFlow;
             let tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
+            tw.to({
+                "alpha": 1
+            }, 200);
             tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
+            tw.to({
+                "alpha": 0
+            }, 200);
             tw.call(change, this);
         };
 

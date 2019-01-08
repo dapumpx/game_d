@@ -1,7 +1,10 @@
 class LotteryCellRender extends eui.Component implements eui.UIComponent {
 	private row: number;
 	private col: number;
-	private isStop: boolean;
+	private isStop: boolean = true;
+
+	public static readonly CELL_W: number = 108;
+	public static readonly CELL_H: number = 107;
 
 	public constructor(row, col) {
 		super();
@@ -23,6 +26,7 @@ class LotteryCellRender extends eui.Component implements eui.UIComponent {
 		this.addChild(img);
 
 		//this.startRoll()
+		this.addListener();
 	}
 
 	private addListener(): void {
@@ -31,23 +35,29 @@ class LotteryCellRender extends eui.Component implements eui.UIComponent {
 	}
 
 	public startRoll(e: egret.Event = null): void {
-		this.doRoll();
+		if (!this.isStop) {
+			return;
+		}
+		this.isStop = false;
+		this.y = this.row * -LotteryCellRender.CELL_H + LotteryCellRender.CELL_H * 2;
+		egret.Tween.get(this).wait(this.col * 100).call(this.resetAndPlay, this);
+
 	}
 
 	private doRoll(): void {
 		egret.Tween.get(this).to({
-			y: this.y + 300
-		}, 300).call(this.resetPos, this);
+			y: this.y + LotteryCellRender.CELL_H * 3
+		}, 150).call(this.resetAndPlay, this);
 	}
 
 	private onEvtSlotStop(e: egret.Event = null): void {
 		this.isStop = true;
 	}
 
-	public resetPos(): void {
+	public resetAndPlay(): void {
 		if (!this.isStop) {
-			this.y -= 300;
-			this.startRoll();
+			this.y = this.row * -LotteryCellRender.CELL_H + LotteryCellRender.CELL_H * 2;
+			this.doRoll();
 		}
 	}
 

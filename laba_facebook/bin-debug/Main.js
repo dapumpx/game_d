@@ -80,7 +80,9 @@ var Main = (function (_super) {
         return _this;
     }
     Main.prototype.onAddToStage = function (event) {
-        console.log("initializeAsync");
+        var assetAdapter = new AssetAdapter();
+        this.stage.registerImplementation("eui.IAssetAdapter", assetAdapter);
+        this.stage.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
         this.initializeAsync();
         FBInstant.startGameAsync().then(function () {
             egret.log("start game");
@@ -101,8 +103,24 @@ var Main = (function (_super) {
         egret.lifecycle.onResume = function () {
             egret.ticker.resume();
         };
-        this.runGame().catch(function (e) {
-            console.log(e);
+        // this.runGame().catch(e => {
+        //     console.log(e);
+        // })
+        this.loadDefaultTheme();
+    };
+    Main.prototype.loadDefaultTheme = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var theme;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadResource()];
+                    case 1:
+                        _a.sent();
+                        theme = new eui.Theme("resource/default.thm.json", this.stage);
+                        theme.addEventListener(eui.UIEvent.COMPLETE, this.runGame, this);
+                        return [2 /*return*/];
+                }
+            });
         });
     };
     Main.prototype.runGame = function () {
@@ -110,22 +128,20 @@ var Main = (function (_super) {
             var result, userInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadResource()];
-                    case 1:
-                        _a.sent();
+                    case 0:
                         this.createGameScene();
                         return [4 /*yield*/, RES.getResAsync("description_json")
                             // this.startAnimation(result);
                         ];
-                    case 2:
+                    case 1:
                         result = _a.sent();
                         // this.startAnimation(result);
                         return [4 /*yield*/, platform.login()];
-                    case 3:
+                    case 2:
                         // this.startAnimation(result);
                         _a.sent();
                         return [4 /*yield*/, platform.getUserInfo()];
-                    case 4:
+                    case 3:
                         userInfo = _a.sent();
                         console.log(userInfo);
                         return [2 /*return*/];
@@ -254,7 +270,9 @@ var Main = (function (_super) {
         */
     };
     Main.prototype.testLaba = function (e) {
-        PomeloService.INS.pomelo.request("laba.mainHandler.la", { userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e' }, function (result) {
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", {
+            userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e'
+        }, function (result) {
             //消息回调
             console.log("request", result);
             // this.gameTimer.setStartTime(result.info.start_time);
@@ -300,9 +318,13 @@ var Main = (function (_super) {
             // Switch to described content
             textfield.textFlow = textFlow;
             var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
+            tw.to({
+                "alpha": 1
+            }, 200);
             tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
+            tw.to({
+                "alpha": 0
+            }, 200);
             tw.call(change, _this);
         };
         change();
