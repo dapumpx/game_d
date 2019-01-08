@@ -38,6 +38,12 @@ class MainView extends eui.Component implements eui.UIComponent {
 		box.mask = m;
 
 		this.addChild(m);
+
+		(this.getChildByName("btnStart") as eui.Button).addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onTap, this);
 	}
 
+	private onTap(e:egret.Event = null):void
+	{
+		EventManager.Instance.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
+	}
 }

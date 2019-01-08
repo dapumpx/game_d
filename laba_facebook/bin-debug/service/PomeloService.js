@@ -52,3 +52,4 @@ var PomeloService = (function () {
     return PomeloService;
 }());
 __reflect(PomeloService.prototype, "PomeloService");
+//# sourceMappingURL=PomeloService.js.map

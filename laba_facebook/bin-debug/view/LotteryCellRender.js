@@ -24,15 +24,32 @@ var LotteryCellRender = (function (_super) {
         var tt = RES.getRes((Math.floor(Math.random() * 100) + 1).toString() + "_head_png");
         var img = new egret.Bitmap(tt);
         this.addChild(img);
-        this.startRoll();
+        //this.startRoll()
     };
-    LotteryCellRender.prototype.startRoll = function () {
-        egret.Tween.get(this).to({ y: this.y + 300 }, 300).call(this.resetPos, this);
+    LotteryCellRender.prototype.addListener = function () {
+        EventManager.Instance.addEventListener(EventManager.EVT_ON_SLOT_STOP, this.onEvtSlotStop, this);
+        EventManager.Instance.addEventListener(EventManager.EVT_START_ROLL, this.startRoll, this);
+    };
+    LotteryCellRender.prototype.startRoll = function (e) {
+        if (e === void 0) { e = null; }
+        this.doRoll();
+    };
+    LotteryCellRender.prototype.doRoll = function () {
+        egret.Tween.get(this).to({
+            y: this.y + 300
+        }, 300).call(this.resetPos, this);
+    };
+    LotteryCellRender.prototype.onEvtSlotStop = function (e) {
+        if (e === void 0) { e = null; }
+        this.isStop = true;
     };
     LotteryCellRender.prototype.resetPos = function () {
-        this.y -= 300;
-        this.startRoll();
+        if (!this.isStop) {
+            this.y -= 300;
+            this.startRoll();
+        }
     };
     return LotteryCellRender;
 }(eui.Component));
 __reflect(LotteryCellRender.prototype, "LotteryCellRender", ["eui.UIComponent", "egret.DisplayObject"]);
+//# sourceMappingURL=LotteryCellRender.js.map
