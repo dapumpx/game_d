@@ -35,6 +35,10 @@ class Main extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
+        
+        ManagerLibrary.init();
+        PomeloService.INS;
+
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
@@ -43,17 +47,13 @@ class Main extends egret.DisplayObjectContainer {
         this.stage.registerImplementation("eui.IAssetAdapter", assetAdapter);
         this.stage.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
 
-        this.initializeAsync();
+        if (GameModel.isFB) {
+            this.initializeAsync();
 
-        FBInstant.startGameAsync().then(() => {
-            egret.log("start game");
-            // Main._that = this;
-            // Context.init(this.stage);
-            // Main.menu = new Menu("Egret Facebook SDK Demo")
-            // this.addChild(Main.menu);
-            // this.createMenu();
-        });
-
+            FBInstant.startGameAsync().then(() => {
+                egret.log("start game");
+            });
+        }
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
 
@@ -125,9 +125,10 @@ class Main extends egret.DisplayObjectContainer {
 
     /**
      * 创建游戏场景
-     * Create a game scene
+     * Create a game sceneß
      */
     private createGameScene() {
+        ManagerLibrary.tblManager.addTable(StcCellVO, StcCellVO.TBL_NAME);
         let main: MainView = new MainView();
         this.addChild(main);
         return;

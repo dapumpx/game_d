@@ -27,14 +27,14 @@ var MainView = (function (_super) {
         this.height = egret.MainContext.instance.stage.stageHeight;
         this.width = egret.MainContext.instance.stage.stageWidth;
         var box = new egret.Sprite();
-        box.y = LotteryCellRender.CELL_H * 3;
+        box.y = 100;
         box.x = 100;
         this.addChild(box);
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 4; i++) {
             for (var j = 0; j < 5; j++) {
                 var cell = new LotteryCellRender(i, j);
                 cell.x = j * LotteryCellRender.CELL_W;
-                cell.y = i * -LotteryCellRender.CELL_H + LotteryCellRender.CELL_H * 2;
+                cell.y = i * LotteryCellRender.CELL_H;
                 box.addChild(cell);
             }
         }
@@ -43,7 +43,7 @@ var MainView = (function (_super) {
         m.graphics.drawRect(0, 0, LotteryCellRender.CELL_W * 5, LotteryCellRender.CELL_H * 3);
         m.graphics.endFill();
         m.x = 100;
-        m.y = LotteryCellRender.CELL_H * 3;
+        m.y = 100;
         box.mask = m;
         this.addChild(m);
         this.addHandler();
@@ -54,12 +54,29 @@ var MainView = (function (_super) {
     };
     MainView.prototype.onBtnStopTapHandler = function (e) {
         if (e === void 0) { e = null; }
-        EventManager.Instance.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP));
+        egret.Tween.get(this).call(function () {
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 0 }));
+        }, this).wait(200).call(function () {
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 1 }));
+        }, this).wait(200).call(function () {
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 2 }));
+        }, this).wait(200).call(function () {
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 3 }));
+        }, this).wait(200).call(function () {
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 4 }));
+        }, this);
     };
     MainView.prototype.onBtnStartTapHandler = function (e) {
         if (e === void 0) { e = null; }
         console.log("Click...");
-        EventManager.Instance.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
+        PomeloService.INS.pomelo.request("laba.mainHandler.la", {
+            userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e'
+        }, function (result) {
+            //消息回调
+            console.log("request", result);
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
+            // this.gameTimer.setStartTime(result.info.start_time);
+        }, this);
     };
     return MainView;
 }(eui.Component));

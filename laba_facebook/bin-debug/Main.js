@@ -76,6 +76,8 @@ var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
         var _this = _super.call(this) || this;
+        ManagerLibrary.init();
+        PomeloService.INS;
         _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onAddToStage, _this);
         return _this;
     }
@@ -83,15 +85,12 @@ var Main = (function (_super) {
         var assetAdapter = new AssetAdapter();
         this.stage.registerImplementation("eui.IAssetAdapter", assetAdapter);
         this.stage.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
-        this.initializeAsync();
-        FBInstant.startGameAsync().then(function () {
-            egret.log("start game");
-            // Main._that = this;
-            // Context.init(this.stage);
-            // Main.menu = new Menu("Egret Facebook SDK Demo")
-            // this.addChild(Main.menu);
-            // this.createMenu();
-        });
+        if (GameModel.isFB) {
+            this.initializeAsync();
+            FBInstant.startGameAsync().then(function () {
+                egret.log("start game");
+            });
+        }
         egret.lifecycle.addLifecycleListener(function (context) {
             // custom lifecycle plugin
             context.onUpdate = function () {
@@ -193,9 +192,10 @@ var Main = (function (_super) {
     };
     /**
      * 创建游戏场景
-     * Create a game scene
+     * Create a game sceneß
      */
     Main.prototype.createGameScene = function () {
+        ManagerLibrary.tblManager.addTable(StcCellVO, StcCellVO.TBL_NAME);
         var main = new MainView();
         this.addChild(main);
         return;

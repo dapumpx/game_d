@@ -4,6 +4,7 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var GameModel = (function () {
     function GameModel() {
     }
+    GameModel.isFB = false;
     return GameModel;
 }());
 __reflect(GameModel.prototype, "GameModel");

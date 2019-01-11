@@ -13,6 +13,8 @@ var LotteryCellRender = (function (_super) {
     function LotteryCellRender(row, col) {
         var _this = _super.call(this) || this;
         _this.isStop = true;
+        _this.isForceStop = false;
+        _this.speed = 32;
         _this.row = row;
         _this.col = col;
         return _this;
@@ -21,39 +23,60 @@ var LotteryCellRender = (function (_super) {
         _super.prototype.partAdded.call(this, partName, instance);
     };
     LotteryCellRender.prototype.childrenCreated = function () {
+        var _this = this;
         _super.prototype.childrenCreated.call(this);
-        var tt = RES.getRes((Math.floor(Math.random() * 100) + 1).toString() + "_head_png");
-        var img = new egret.Bitmap(tt);
-        this.addChild(img);
+        this.imgCell = new egret.Bitmap(RES.getRes((Math.floor(Math.random() * 100) + 1).toString() + "_head_png"));
+        this.addChild(this.imgCell);
         //this.startRoll()
         this.addListener();
+        egret.Tween.get(this).wait(Math.random() * 1000).call(function () {
+            LightEffect.playEffect(_this);
+        });
     };
     LotteryCellRender.prototype.addListener = function () {
-        EventManager.Instance.addEventListener(EventManager.EVT_ON_SLOT_STOP, this.onEvtSlotStop, this);
-        EventManager.Instance.addEventListener(EventManager.EVT_START_ROLL, this.startRoll, this);
+        ManagerLibrary.evtManager.addEventListener(EventManager.EVT_ON_SLOT_STOP, this.onEvtSlotStop, this);
+        ManagerLibrary.evtManager.addEventListener(EventManager.EVT_START_ROLL, this.startRoll, this);
     };
     LotteryCellRender.prototype.startRoll = function (e) {
         if (e === void 0) { e = null; }
         if (!this.isStop) {
             return;
         }
+        egret.stopTick(this.onRoll, this);
         this.isStop = false;
-        this.y = this.row * -LotteryCellRender.CELL_H + LotteryCellRender.CELL_H * 2;
-        egret.Tween.get(this).wait(this.col * 100).call(this.resetAndPlay, this);
+        this.isForceStop = false;
+        this.y = this.row * LotteryCellRender.CELL_H;
+        egret.Tween.get(this).wait(this.col * 100).call(this.doRoll_1, this);
     };
-    LotteryCellRender.prototype.doRoll = function () {
-        egret.Tween.get(this).to({
-            y: this.y + LotteryCellRender.CELL_H * 3
-        }, 150).call(this.resetAndPlay, this);
+    LotteryCellRender.prototype.doRoll_1 = function () {
+        egret.startTick(this.onRoll, this);
+    };
+    LotteryCellRender.prototype.onRoll = function (ts) {
+        this.y += this.speed;
+        if (this.y >= LotteryCellRender.CELL_H * 3) {
+            if (!this.isForceStop) {
+                this.y = -LotteryCellRender.CELL_H + this.y - LotteryCellRender.CELL_H * 3;
+                this.imgCell.texture = RES.getRes((Math.floor(Math.random() * 100) + 1).toString() + "_head_png");
+            }
+        }
+        if (this.isStop) {
+            if (this.y >= LotteryCellRender.CELL_H * this.row) {
+                if (this.isForceStop) {
+                    this.y = LotteryCellRender.CELL_H * this.row;
+                    egret.stopTick(this.onRoll, this);
+                    return false;
+                }
+            }
+            else if (this.isStop) {
+                this.isForceStop = true;
+            }
+        }
+        return false;
     };
     LotteryCellRender.prototype.onEvtSlotStop = function (e) {
         if (e === void 0) { e = null; }
-        this.isStop = true;
-    };
-    LotteryCellRender.prototype.resetAndPlay = function () {
-        if (!this.isStop) {
-            this.y = this.row * -LotteryCellRender.CELL_H + LotteryCellRender.CELL_H * 2;
-            this.doRoll();
+        if (e.data.col == this.col) {
+            this.isStop = true;
         }
     };
     LotteryCellRender.CELL_W = 108;

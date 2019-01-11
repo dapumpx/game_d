@@ -13,16 +13,6 @@ var EventManager = (function (_super) {
     function EventManager() {
         return _super.call(this) || this;
     }
-    Object.defineProperty(EventManager, "Instance", {
-        get: function () {
-            if (EventManager._instance == null) {
-                EventManager._instance = new EventManager();
-            }
-            return EventManager._instance;
-        },
-        enumerable: true,
-        configurable: true
-    });
     EventManager.EVT_ON_SLOT_STOP = "EVT_ON_SLOT_STOP";
     EventManager.EVT_START_ROLL = "EVT_START_ROLL";
     return EventManager;
