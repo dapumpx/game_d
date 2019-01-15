@@ -1,1 +1,1 @@
-{"version":3,"file":"GameModel.js","sourceRoot":"","sources":["../../src/model/GameModel.ts"],"names":[],"mappings":";;;AAAA;IACC;IACA,CAAC;IAEsB,cAAI,GAAW,KAAK,CAAC;IAC7C,gBAAC;CAAA,AALD,IAKC;AALK,UAAA,SAAS,wBAKd,CAAA"}
+{"version":3,"file":"GameModel.js","sourceRoot":"","sources":["../../src/model/GameModel.ts"],"names":[],"mappings":";;;AAAA;IACC;IACA,CAAC;IAEsB,cAAI,GAAW,KAAK,CAAC;IAC9B,mBAAS,GAAU,sCAAsC,CAAC;IAIzE,gBAAC;CAAA,AATD,IASC;AATK,UAAA,SAAS,wBASd,CAAA"}

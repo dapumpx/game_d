@@ -19,6 +19,7 @@
 		"bin-debug/manager/EventManager.js",
 		"bin-debug/manager/ManagerLibrary.js",
 		"bin-debug/manager/TblManager.js",
+		"bin-debug/model/CMD.js",
 		"bin-debug/model/GameModel.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/AssetAdapter.js",

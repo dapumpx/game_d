@@ -2,73 +2,113 @@ const labaDao = module.exports;
 const dataApi = require('../util/dataApi')
 
 labaDao.once = function () {
-    let arrEle = [];
     let result = [];
-    Object.keys(dataApi.ceil.data).forEach(function (key) {
-        // console.log(key)
-        // console.log(dataApi.ceil[key])
-        arrEle.push(dataApi.ceil.data[key]);
-    });
-    let sumProbability = 0.0;
-    let i;
-    for (i = 0; i < arrEle.length; i++) {
-        sumProbability += arrEle[i].probability;
-    }
-
+    let isCheck;
     for (let j = 0; j < 15; j++) {
         while (true) {
-            let randomIndex = Math.random() * sumProbability;
-            let isCheck = false;
-            for (i = 0; i < arrEle.length; i++) {
-                if (randomIndex <= arrEle[i].probability) {
-                    let checkIndex = result.length % 3;
-                    checkIndex += Math.floor(result.length / 3) * 3;
-                    isCheck = true;
-                    for (m = Math.floor(result.length / 3) * 3; m < checkIndex; m++) {
-                        if (result[m].id == arrEle[i].id) {
-                            isCheck = false;
-                            break;
-                        }
-                    }
-
-                    if (isCheck) {
-                        result.push(arrEle[i]);
-                        // console.log(arrEle[i].name);
-                        break;
-                    }
-                } else {
-                    randomIndex -= arrEle[i].probability;
+            let tmpCell = this.getRandomCell();
+            let checkIndex = result.length % 3;
+            checkIndex += Math.floor(result.length / 3) * 3;
+            isCheck = true;
+            for (let m = Math.floor(result.length / 3) * 3; m < checkIndex; m++) {
+                if (result[m].id == tmpCell.id) {
+                    isCheck = false;
+                    break;
                 }
             }
 
             if (isCheck) {
+                result.push(tmpCell);
                 break;
             }
         }
     }
 
-    this.checkReward(result);
+    let totalResult = [];
+    let rewardResult = [];
+    while (true) {
+        totalResult.push(result);
+        result = result.slice();
+        let rewardLine = this.checkReward(result);
 
-    return result;
+        if (rewardLine.length > 0) {
+            rewardResult.push(rewardLine);
+            rewardLine.forEach(line => {
+                line.forEach(eachCell => {
+                    result[eachCell.index] = -1
+                })
+            });
+            // console.log(result);
+            for (let i = result.length - 1; i >= 0; i--) {
+                if (result[i] == -1) {
+                    let m = i - 1;
+                    while (true) {
+                        if ((m + 1) % 3 <= 0) {
+                            break;
+                        }
+
+                        if (result[m] == -1) {
+                            m--;
+                        } else {
+                            result[i] = result[m];
+                            result[m] = -1;
+                            break;
+                        }
+                    }
+                    // console.log(result);
+                }
+            }
+            for (let i = 0; i < result.length; i++) {
+                if (result[i] == -1) {
+                    result[i] = this.getRandomCell();
+                }
+            }
+        } else {
+            break;
+        }
+    }
+
+    return {
+        totalResult: totalResult,
+        rewardResult: rewardResult
+    };
+}
+
+labaDao.getRandomCell = function () {
+    let arrEle = [];
+    let sumProbability = 0.0;
+    Object.keys(dataApi.ceil.data).forEach(function (key) {
+        arrEle.push(dataApi.ceil.data[key]);
+        sumProbability += dataApi.ceil.data[key].probability
+    });
+
+    let randomIndex = Math.random() * sumProbability;
+    for (i = 0; i < arrEle.length; i++) {
+        if (randomIndex <= arrEle[i].probability) {
+            return arrEle[i];
+        } else {
+            randomIndex -= arrEle[i].probability;
+        }
+    }
+    return arrEle[0];
 }
 
 labaDao.checkReward = function (arrData) {
-    let i, j, m;
     let arrLine = [];
-    let sumResult = 0;
     for (col = 0; col < 5; col++) {
         for (row = 0; row < 3; row++) {
             if (col == 0) {
                 let objNode = {
                     data: arrData[row + col * 3],
                     node: [],
-                    depth: col
+                    depth: col,
+                    index: row + col * 3
                 };
                 arrLine.push(objNode);
             } else {
                 arrLine.forEach(node => {
                     if (this.compareNode(node, arrData[row + col * 3])) {
-                        this.addDataToNode(node, arrData[row + col * 3], col);
+                        this.addDataToNode(node, arrData[row + col * 3], col, row + col * 3);
                     }
                 });
             }
@@ -76,31 +116,36 @@ labaDao.checkReward = function (arrData) {
     }
 
     let result = [];
-    let arrline = [];
-    this.calcRewardLine(arrLine, result, arrline);
+    let currLine = [];
+    this.calcRewardLine(arrLine, result, currLine);
 
     console.log(JSON.stringify(result));
+
+    return result;
 }
 
 labaDao.calcRewardLine = function (arrPNode, totalLine, line) {
     arrPNode.forEach(pNode => {
-        if(pNode.node.length > 0)
-        {
+        if (pNode.node.length > 0) {
             this.calcRewardLine(pNode.node, totalLine, line);
             line.forEach(singleLine => {
-                singleLine.unshift(pNode.data.name);
+                singleLine.unshift({
+                    name: pNode.data.name,
+                    id: pNode.data.id,
+                    index: pNode.index
+                });
             })
-        }
-        else if(pNode.depth >= 2)
-        {
-            line.push([pNode.data.name]);
+        } else if (pNode.depth >= 2) {
+            line.push([{
+                name: pNode.data.name,
+                id: pNode.data.id,
+                index: pNode.index
+            }]);
         }
 
-        if(pNode.depth == 0)
-        {
-            line.forEach(singleLine =>{
-                if(singleLine.length >= 3)
-                {
+        if (pNode.depth == 0) {
+            line.forEach(singleLine => {
+                if (singleLine.length >= 3) {
                     totalLine.push(singleLine);
                 }
             });
@@ -110,16 +155,17 @@ labaDao.calcRewardLine = function (arrPNode, totalLine, line) {
     });
 }
 
-labaDao.addDataToNode = function (nodeData, data, depth) {
+labaDao.addDataToNode = function (nodeData, data, depth, index) {
     if (nodeData.depth < (depth - 1)) {
         nodeData.node.forEach(childNode => {
-            this.addDataToNode(childNode, data, depth);
+            this.addDataToNode(childNode, data, depth, index);
         })
     } else {
         nodeData.node.push({
             data: data,
             node: [],
-            depth: depth
+            depth: depth,
+            index: index
         });
     }
 }

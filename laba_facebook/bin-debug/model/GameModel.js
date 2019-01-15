@@ -5,6 +5,7 @@ var GameModel = (function () {
     function GameModel() {
     }
     GameModel.isFB = false;
+    GameModel.user_guid = "a7e35206-2c3e-4b7a-bafb-33e39b79a68e";
     return GameModel;
 }());
 __reflect(GameModel.prototype, "GameModel");

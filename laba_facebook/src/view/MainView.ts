@@ -89,9 +89,12 @@ class MainView extends eui.Component implements eui.UIComponent {
 		}, function (result) {
 			//消息回调
 			console.log("request", result);
+			GameModel.lastResult = result.info;
+			GameModel.user_info = result.user;
 
 			ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
-			// this.gameTimer.setStartTime(result.info.start_time);
+
+			console.log("start roll");
 		}, this);
 	}
 }

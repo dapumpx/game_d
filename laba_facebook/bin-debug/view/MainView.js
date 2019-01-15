@@ -55,27 +55,38 @@ var MainView = (function (_super) {
     MainView.prototype.onBtnStopTapHandler = function (e) {
         if (e === void 0) { e = null; }
         egret.Tween.get(this).call(function () {
-            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 0 }));
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, {
+                col: 0
+            }));
         }, this).wait(200).call(function () {
-            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 1 }));
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, {
+                col: 1
+            }));
         }, this).wait(200).call(function () {
-            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 2 }));
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, {
+                col: 2
+            }));
         }, this).wait(200).call(function () {
-            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 3 }));
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, {
+                col: 3
+            }));
         }, this).wait(200).call(function () {
-            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, { col: 4 }));
+            ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_ON_SLOT_STOP, false, false, {
+                col: 4
+            }));
         }, this);
     };
     MainView.prototype.onBtnStartTapHandler = function (e) {
         if (e === void 0) { e = null; }
-        console.log("Click...");
-        PomeloService.INS.pomelo.request("laba.mainHandler.la", {
-            userId: 'a7e35206-2c3e-4b7a-bafb-33e39b79a68e'
+        PomeloService.INS.pomelo.request(CMD.LABA_MAIN_LA, {
+            userId: GameModel.user_guid
         }, function (result) {
             //消息回调
             console.log("request", result);
+            GameModel.lastResult = result.info;
+            GameModel.user_info = result.user;
             ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
-            // this.gameTimer.setStartTime(result.info.start_time);
+            console.log("start roll");
         }, this);
     };
     return MainView;

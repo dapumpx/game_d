@@ -1,28 +1,51 @@
 var myGold = 0;
-
+var currViewIndex = 0;
+var dataInfo;
 function la() {
     var req = {
         userId: "a7e35206-2c3e-4b7a-bafb-33e39b79a68e"
     };
     pomelo.request("laba.mainHandler.la", req, function (data) {
         console.log(data.info);
-
-        var table = document.getElementById("myInfo");
-        while (table.rows.length > 1) {
-            table.deleteRow(1);
-        }
-
-        for (var i = 0; i < 3; i++) {
-            table.insertRow(-1);
-            var eleRow = table.rows[table.rows.length - 1];
-            for (var j = 0; j < 5; j++) {
-                eleRow.insertCell(j).innerHTML = data.info[i + j * 3].name;
-            }
-        }
+        currViewIndex = 0;
+        dataInfo = data;
+        updateView();
 
         myGold = data.user.gold;
         updateTableInfo();
     });
+}
+
+function updateView()
+{
+    var table = document.getElementById("myInfo");
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+
+    for (var i = 0; i < 3; i++) {
+        table.insertRow(-1);
+        var eleRow = table.rows[table.rows.length - 1];
+        for (var j = 0; j < 5; j++) {
+            eleRow.insertCell(j).innerHTML = '<font color="' + dataInfo.info.totalResult[currViewIndex][i + j * 3].color + '">' + dataInfo.info.totalResult[currViewIndex][i + j * 3].name + '</font>';
+        }
+    }
+}
+
+function onPrevious(){
+    if(currViewIndex > 0)
+    {
+        currViewIndex--;
+        updateView();
+    }
+}
+
+function onNext(){
+    if(currViewIndex < dataInfo.info.totalResult.length - 1)
+    {
+        currViewIndex++;
+        updateView();
+    }
 }
 
 function updateTableInfo() {
