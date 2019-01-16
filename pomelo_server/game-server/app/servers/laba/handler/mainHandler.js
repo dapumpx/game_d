@@ -17,11 +17,20 @@ Handler.prototype.la = function (msg, session, next) {
             });
         } else {
             let result = labaDao.once();
+            user.gold += result.totalGet;
+            user.save().then(() => {
 
-            next(null, {
-                code: 1,
-                info: result,
-                user: user
+                let rankInfo = -1;
+                if(result.totalGet)
+                {
+                    rankInfo = labaDao.updateRank(user, result.totalGet);
+                }
+                next(null, {
+                    code: 1,
+                    info: result,
+                    user: user,
+                    rankInfo: rankInfo
+                });
             });
         }
     });

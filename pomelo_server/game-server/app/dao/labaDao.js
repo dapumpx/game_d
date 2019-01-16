@@ -1,5 +1,6 @@
 const labaDao = module.exports;
-const dataApi = require('../util/dataApi')
+const dataApi = require('../util/dataApi');
+var pomelo = require('pomelo');
 
 labaDao.once = function () {
     let result = [];
@@ -26,18 +27,24 @@ labaDao.once = function () {
 
     let totalResult = [];
     let rewardResult = [];
+    let coinResult = [];
     while (true) {
         totalResult.push(result);
         result = result.slice();
         let rewardLine = this.checkReward(result);
-
+        let coinCurrResult = {
+            round: totalResult.length,
+            coin: []
+        };
         if (rewardLine.length > 0) {
             rewardResult.push(rewardLine);
             rewardLine.forEach(line => {
+                coinCurrResult.coin.push(this.getCoin(line));
                 line.forEach(eachCell => {
                     result[eachCell.index] = -1
                 })
             });
+            coinResult.push(coinCurrResult);
             // console.log(result);
             for (let i = result.length - 1; i >= 0; i--) {
                 if (result[i] == -1) {
@@ -67,11 +74,113 @@ labaDao.once = function () {
             break;
         }
     }
+    let totalGet = 0;
+    coinResult.forEach(r => {
+        r.coin.forEach(c => {
+            totalGet += c * r.round;
+        })
+    });
 
     return {
         totalResult: totalResult,
-        rewardResult: rewardResult
+        rewardResult: rewardResult,
+        coinResult: coinResult,
+        totalGet: totalGet
     };
+}
+
+labaDao.updateRank = function (user, addCoin) {
+    if (pomelo.app.insRank == undefined) {
+        pomelo.app.insRank = {};
+
+        let hTime = new Date();
+        let tmpTs = hTime.setHours(hTime.getHours() + 1, 0, 0, 0);
+        pomelo.app.insRank.rankTime = tmpTs;
+        pomelo.app.insRank.rank = [];
+    }
+
+    if (Date.now() > pomelo.app.insRank.rankTime) {
+        this.resetGameTime();
+    }
+    let isExist = false;
+    // pomelo.app.insRank.rank.forEach(userRecord => {
+    //     if(userRecord.id == user.id)
+    //     {
+    //         user.coin += addCoin;
+    //         isExist = true;
+    //         break;
+    //     }
+    // })
+    for(let userRecord of pomelo.app.insRank.rank)
+    {
+        if(userRecord.id == user.id)
+        {
+            userRecord.coin += addCoin;
+            isExist = true;
+            // break;
+        }
+    }
+    if(!isExist)
+    {
+        pomelo.app.insRank.rank.push({
+            id: user.id,
+            coin:addCoin
+        })
+    }
+    pomelo.app.insRank.rank.sort((userA, userB)=>{
+        if(userA.coin > userB.coin)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    });
+    let top5 = [];
+    let myRank = -1;
+    for(let i = 0; i < pomelo.app.insRank.rank.length; i++)
+    {
+        if(i < 5)
+        {
+            top5.push(pomelo.app.insRank.rank[i]);
+        }
+
+        if(pomelo.app.insRank.rank[i].id == user.id)
+        {
+            myRank = i+1;
+        }
+
+        if(i > 5 && myRank > 0)
+        {
+            break;
+        }
+    }
+
+    return {
+        topRank: top5,
+        myRank:myRank,
+        rankTime:pomelo.app.insRank.rankTime
+    }
+}
+
+labaDao.resetGameTime = function () {
+    pomelo.app.insRank.rankTime += 1000 * 60 * 60;
+    pomelo.app.insRank.rank = [];
+}
+
+labaDao.getCoin = function (line) {
+    let vo = dataApi.ceil.data[line[0].id];
+    switch (line.length) {
+        case 3:
+            return vo.ratio_3;
+        case 4:
+            return vo.ratio_4;
+        case 5:
+            return vo.ratio_5;
+        default:
+            return 0;
+    }
 }
 
 labaDao.getRandomCell = function () {

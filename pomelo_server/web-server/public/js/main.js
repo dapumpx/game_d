@@ -6,7 +6,7 @@ function la() {
         userId: "a7e35206-2c3e-4b7a-bafb-33e39b79a68e"
     };
     pomelo.request("laba.mainHandler.la", req, function (data) {
-        console.log(data.info);
+        console.log(data);
         currViewIndex = 0;
         dataInfo = data;
         updateView();
