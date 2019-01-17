@@ -225,25 +225,26 @@ labaDao.checkReward = function (arrData) {
     }
 
     let result = [];
-    let currLine = [];
-    this.calcRewardLine(arrLine, result, currLine);
+    this.calcRewardLine(arrLine, result);
 
     console.log(JSON.stringify(result));
 
     return result;
 }
 
-labaDao.calcRewardLine = function (arrPNode, totalLine, line) {
+labaDao.calcRewardLine = function (arrPNode, totalLine) {
+    let line = [];
     arrPNode.forEach(pNode => {
         if (pNode.node.length > 0) {
-            this.calcRewardLine(pNode.node, totalLine, line);
-            line.forEach(singleLine => {
+            let tmpline = this.calcRewardLine(pNode.node, totalLine);
+            tmpline.forEach(singleLine => {
                 singleLine.unshift({
                     name: pNode.data.name,
                     id: pNode.data.id,
                     index: pNode.index
                 });
             })
+            line = line.concat(tmpline);
         } else if (pNode.depth >= 2) {
             line.push([{
                 name: pNode.data.name,
@@ -259,9 +260,10 @@ labaDao.calcRewardLine = function (arrPNode, totalLine, line) {
                 }
             });
 
-            line = [];
+            // line = [];
         }
     });
+    return line;
 }
 
 labaDao.addDataToNode = function (nodeData, data, depth, index) {

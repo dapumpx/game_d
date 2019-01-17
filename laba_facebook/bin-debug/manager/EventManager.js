@@ -16,6 +16,8 @@ var EventManager = (function (_super) {
     EventManager.EVT_ON_SLOT_STOP = "EVT_ON_SLOT_STOP";
     EventManager.EVT_START_ROLL = "EVT_START_ROLL";
     EventManager.EVT_CHANGE_STATE = "EVT_CHANGE_STATE";
+    EventManager.EVT_UPDATE_TO_NEXT_STEP = "EVT_UPDATE_TO_NEXT_STEP";
+    EventManager.EVT_CHECK_CELL_STATE = "EVT_CHECK_CELL_STATE";
     return EventManager;
 }(egret.EventDispatcher));
 __reflect(EventManager.prototype, "EventManager");

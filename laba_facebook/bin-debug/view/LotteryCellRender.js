@@ -13,7 +13,7 @@ var LotteryCellRender = (function (_super) {
     function LotteryCellRender(row, col) {
         var _this = _super.call(this) || this;
         _this.labaState = 0; //0:stop 1:running 2:ready 3:stop 4:force stop
-        _this.perDuration = 100;
+        _this.perDuration = 50;
         _this.row = row;
         _this.col = col;
         return _this;
@@ -36,6 +36,25 @@ var LotteryCellRender = (function (_super) {
         ManagerLibrary.evtManager.addEventListener(EventManager.EVT_ON_SLOT_STOP, this.onEvtSlotStop, this);
         ManagerLibrary.evtManager.addEventListener(EventManager.EVT_START_ROLL, this.startRoll, this);
         ManagerLibrary.evtManager.addEventListener(EventManager.EVT_CHANGE_STATE, this.changeState, this);
+        ManagerLibrary.evtManager.addEventListener(EventManager.EVT_UPDATE_TO_NEXT_STEP, this.onUpdateToNextStep, this);
+    };
+    LotteryCellRender.prototype.onUpdateToNextStep = function (e) {
+        var _this = this;
+        if (this.row == 3)
+            return;
+        //console.log("row: " + this.row + ", col: " + this.col, ", step: " + GameModel.currStep);
+        //console.log(GameModel.totalResult[GameModel.currStep])
+        var vo = ManagerLibrary.tblManager.getVo(StcCellVO.TBL_NAME, GameModel.totalResult[GameModel.currStep][this.getCellIndex()].id);
+        this.imgCell.texture = RES.getRes(vo.icon + "_head_png");
+        var oldRow = Math.round(this.y / LotteryCellRender.CELL_H);
+        if (oldRow != this.row) {
+            this.labaState = LotteryCellRender.STATE_RUNNING;
+            egret.Tween.get(this).to({ y: this.row * LotteryCellRender.CELL_H }, (this.row - oldRow) * this.perDuration * 2)
+                .call(function () {
+                _this.labaState = LotteryCellRender.STATE_PAUSE;
+                ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_CHECK_CELL_STATE));
+            }, this);
+        }
     };
     LotteryCellRender.prototype.changeState = function (e) {
         if (this.labaState == LotteryCellRender.STATE_PAUSE)
