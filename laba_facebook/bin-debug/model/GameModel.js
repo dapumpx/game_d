@@ -6,6 +6,7 @@ var GameModel = (function () {
     }
     GameModel.isFB = false;
     GameModel.user_guid = "a7e35206-2c3e-4b7a-bafb-33e39b79a68e";
+    GameModel.currStep = 0;
     return GameModel;
 }());
 __reflect(GameModel.prototype, "GameModel");

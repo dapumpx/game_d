@@ -51,7 +51,7 @@ class LotteryCellRender extends eui.Component implements eui.UIComponent {
 			this.labaState = e.data.state;
 		}
 	}
-	private perDuration:number = 50;
+	private perDuration:number = 100;
 	public checkChangeHandler(): void {
 		switch (this.labaState) {
 			case LotteryCellRender.STATE_RUNNING:
@@ -73,7 +73,7 @@ class LotteryCellRender extends eui.Component implements eui.UIComponent {
 				}
 				break;
 			case LotteryCellRender.STATE_FORCE_STOP:
-				let vo: StcCellVO = ManagerLibrary.tblManager.getVo < StcCellVO > (StcCellVO.TBL_NAME, GameModel.lastResult[this.getCellIndex()].id);
+				let vo: StcCellVO = ManagerLibrary.tblManager.getVo < StcCellVO > (StcCellVO.TBL_NAME, GameModel.totalResult[GameModel.currStep][this.getCellIndex()].id);
 				this.imgCell.texture = RES.getRes(vo.icon + "_head_png");
 				egret.Tween.removeTweens(this);
 				egret.Tween.get(this).to({

@@ -21,8 +21,7 @@ Handler.prototype.la = function (msg, session, next) {
             user.save().then(() => {
 
                 let rankInfo = -1;
-                if(result.totalGet)
-                {
+                if (result.totalGet) {
                     rankInfo = labaDao.updateRank(user, result.totalGet);
                 }
                 next(null, {

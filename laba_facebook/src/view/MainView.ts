@@ -91,6 +91,12 @@ class MainView extends eui.Component implements eui.UIComponent {
 			console.log("request", result);
 			GameModel.lastResult = result.info;
 			GameModel.user_info = result.user;
+			GameModel.totalResult = result.info.totalResult;
+			GameModel.rewardResult = result.info.rewardResult;
+			GameModel.coinResult = result.info.coinResult;
+			GameModel.totalGet = result.info.totalGet;
+			GameModel.rankInfo = result.rankInfo;
+			GameModel.currStep = 0;
 
 			ManagerLibrary.evtManager.dispatchEvent(new egret.Event(EventManager.EVT_START_ROLL));
 

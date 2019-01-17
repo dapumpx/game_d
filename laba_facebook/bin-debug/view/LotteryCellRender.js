@@ -13,7 +13,7 @@ var LotteryCellRender = (function (_super) {
     function LotteryCellRender(row, col) {
         var _this = _super.call(this) || this;
         _this.labaState = 0; //0:stop 1:running 2:ready 3:stop 4:force stop
-        _this.perDuration = 50;
+        _this.perDuration = 100;
         _this.row = row;
         _this.col = col;
         return _this;
@@ -65,7 +65,7 @@ var LotteryCellRender = (function (_super) {
                 }
                 break;
             case LotteryCellRender.STATE_FORCE_STOP:
-                var vo = ManagerLibrary.tblManager.getVo(StcCellVO.TBL_NAME, GameModel.lastResult[this.getCellIndex()].id);
+                var vo = ManagerLibrary.tblManager.getVo(StcCellVO.TBL_NAME, GameModel.totalResult[GameModel.currStep][this.getCellIndex()].id);
                 this.imgCell.texture = RES.getRes(vo.icon + "_head_png");
                 egret.Tween.removeTweens(this);
                 egret.Tween.get(this).to({
